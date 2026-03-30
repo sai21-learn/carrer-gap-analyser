@@ -1,7 +1,7 @@
 # AI Skill Gap Analyzer
 
 ## Overview
-AI Skill Gap Analyzer is a Python + Streamlit application that compares a student’s skills to real job market demand and generates a skill gap report with curated learning resources. It supports mock data for offline development and optional live scraping for LinkedIn and Naukri.
+AI Skill Gap Analyzer is a Python + Streamlit application that compares a student’s skills to real job market demand and generates a skill gap report with curated learning resources. It supports mock data for offline development and optional live data via the Adzuna API.
 
 ## Key Features
 - Skill extraction with spaCy phrase matching and normalization
@@ -36,6 +36,25 @@ python -m venv .venv
 Copy `.env.example` to `.env` if you want to manage toggles via environment variables. The main toggles in `config/settings.py` are:
 - `USE_MOCK_DATA`: use mock job postings instead of live scraping
 - `ENABLE_BERT`: enable BERT-based similarity (slower, more accurate)
+
+### Adzuna API (Live Data)
+Add your Adzuna credentials to `.env`:
+- `ADZUNA_APP_ID`
+- `ADZUNA_APP_KEY`
+
+Default market is India (`ADZUNA_COUNTRY=in`) and default location is `India`. You can override these in `.env`.
+
+### Job Filters (UI)
+The UI exposes optional filters that map directly to Adzuna query parameters:
+- `Location` → `where`
+- `Sort by` → `sort_by` (UI supports Default or Salary; you can override with a custom value)
+- `Exclude keywords` → `what_exclude`
+- `Minimum salary` → `salary_min`
+- `Maximum salary` → `salary_max`
+- `Full-time` → `full_time`
+- `Part-time` → `part_time`
+- `Permanent` → `permanent`
+- `Contract` → `contract`
 
 ## Run Locally
 ```bash
