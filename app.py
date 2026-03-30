@@ -7,7 +7,6 @@ from scraper.job_scraper import fetch_jobs
 from ui.input_form import render_input_form
 from ui.report_view import render_report
 
-
 st.set_page_config(
     page_title="AI Skill Gap Analyzer",
     page_icon="🎯",
@@ -46,15 +45,16 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-profile = render_input_form()
+form_result = render_input_form()
 
-if profile:
+if form_result:
+    profile, filters = form_result
     with st.spinner("🔍 Fetching live job data..."):
-        jobs = fetch_jobs(profile.target_role)
+        jobs = fetch_jobs(profile.target_role, filters=filters)
 
     with st.spinner("🧠 Analyzing your skills with NLP..."):
         industry_skills = aggregate_skills(jobs)
         gap_report = analyze(profile, industry_skills)
         resources = recommend_all([s.skill for s in gap_report.gaps])
 
-    render_report(gap_report, resources)
+    render_report(gap_report, resources, jobs)

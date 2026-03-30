@@ -24,7 +24,9 @@ def _load_mock(role: str, limit: int) -> List[dict]:
     return filtered[:limit]
 
 
-def scrape_linkedin(role: str, limit: int = MAX_JOBS_PER_PLATFORM) -> List[dict]:
+def scrape_linkedin(
+    role: str, limit: int = MAX_JOBS_PER_PLATFORM, filters=None
+) -> List[dict]:
     if USE_MOCK_DATA:
         return _load_mock(role, limit)
 

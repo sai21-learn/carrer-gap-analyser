@@ -6,12 +6,8 @@ from typing import Optional
 
 import requests
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 
 from config.settings import REQUEST_DELAY_SECONDS, SCRAPE_TIMEOUT_SECONDS
-
 
 LOG_PATH = Path(__file__).resolve().parents[1] / "logs" / "app.log"
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -25,11 +21,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def make_request(url: str, headers: Optional[dict] = None, retries: int = 3, delay: int = 2) -> Optional[requests.Response]:
+def make_request(
+    url: str,
+    headers: Optional[dict] = None,
+    params: Optional[dict] = None,
+    retries: int = 3,
+    delay: int = 2,
+) -> Optional[requests.Response]:
     last_exc: Optional[Exception] = None
     for attempt in range(retries):
         try:
-            resp = requests.get(url, headers=headers, timeout=SCRAPE_TIMEOUT_SECONDS)
+            resp = requests.get(
+                url, headers=headers, params=params, timeout=SCRAPE_TIMEOUT_SECONDS
+            )
             return resp
         except Exception as exc:  # noqa: BLE001 - keep broad for scraper resilience
             last_exc = exc
@@ -40,7 +44,11 @@ def make_request(url: str, headers: Optional[dict] = None, retries: int = 3, del
     return None
 
 
-def get_chrome_driver() -> webdriver.Chrome:
+def get_chrome_driver():
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
+    from webdriver_manager.chrome import ChromeDriverManager
+
     options = Options()
     options.add_argument("--headless=new")
     options.add_argument("--disable-gpu")

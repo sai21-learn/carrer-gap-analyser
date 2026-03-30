@@ -3,12 +3,8 @@ import logging
 from pathlib import Path
 from typing import List
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from config.settings import MAX_JOBS_PER_PLATFORM, USE_MOCK_DATA
-from scraper.utils import get_chrome_driver, clean_text
+from scraper.utils import clean_text, get_chrome_driver
 
 logger = logging.getLogger(__name__)
 
@@ -23,9 +19,15 @@ def _load_mock(role: str, limit: int) -> List[dict]:
     return filtered[:limit]
 
 
-def scrape_naukri(role: str, limit: int = MAX_JOBS_PER_PLATFORM) -> List[dict]:
+def scrape_naukri(
+    role: str, limit: int = MAX_JOBS_PER_PLATFORM, filters=None
+) -> List[dict]:
     if USE_MOCK_DATA:
         return _load_mock(role, limit)
+
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.support.ui import WebDriverWait
 
     role_slug = role.lower().replace(" ", "-")
     url = f"https://www.naukri.com/{role_slug}-jobs"

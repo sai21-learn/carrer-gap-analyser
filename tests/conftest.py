@@ -1,10 +1,14 @@
 import json
+import sys
 from pathlib import Path
 
 import pytest
 
-from models import StudentProfile, JobPosting
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
+from models import JobPosting, StudentProfile
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
@@ -44,5 +48,14 @@ def student_with_all_skills():
     return StudentProfile(
         name="Full Student",
         target_role="Data Analyst",
-        skills=["Python", "SQL", "Pandas", "NumPy", "Tableau", "Excel", "Power BI", "Machine Learning"],
+        skills=[
+            "Python",
+            "SQL",
+            "Pandas",
+            "NumPy",
+            "Tableau",
+            "Excel",
+            "Power BI",
+            "Machine Learning",
+        ],
     )

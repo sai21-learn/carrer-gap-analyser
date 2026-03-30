@@ -2,10 +2,11 @@ import json
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from config.settings import SCRAPE_PLATFORMS, SUPPORTED_ROLES, USE_MOCK_DATA
-from models import JobPosting
+from models import JobPosting, JobSearchFilters
+from scraper.adzuna_scraper import scrape_adzuna
 from scraper.linkedin_scraper import scrape_linkedin
 from scraper.naukri_scraper import scrape_naukri
 
@@ -15,6 +16,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 MOCK_PATH = ROOT_DIR / "data" / "mock_jobs.json"
 
 PLATFORM_FUNCS = {
+    "adzuna": scrape_adzuna,
     "linkedin": scrape_linkedin,
     "naukri": scrape_naukri,
 }
@@ -27,9 +29,13 @@ def _load_mock(role: str) -> List[JobPosting]:
     return [JobPosting(**job) for job in filtered]
 
 
-def fetch_jobs(role: str) -> List[JobPosting]:
+def fetch_jobs(
+    role: str, filters: Optional[JobSearchFilters] = None
+) -> List[JobPosting]:
     if role not in SUPPORTED_ROLES:
-        raise ValueError(f"Unsupported role '{role}'. Valid roles: {', '.join(SUPPORTED_ROLES)}")
+        raise ValueError(
+            f"Unsupported role '{role}'. Valid roles: {', '.join(SUPPORTED_ROLES)}"
+        )
 
     if USE_MOCK_DATA:
         return _load_mock(role)
@@ -40,7 +46,7 @@ def fetch_jobs(role: str) -> List[JobPosting]:
         for platform in SCRAPE_PLATFORMS:
             func = PLATFORM_FUNCS.get(platform)
             if func:
-                futures.append(executor.submit(func, role))
+                futures.append(executor.submit(func, role, filters=filters))
         for future in as_completed(futures):
             try:
                 results.extend(future.result())
@@ -58,9 +64,9 @@ def fetch_jobs(role: str) -> List[JobPosting]:
         deduped.append(job)
 
     if len(deduped) < 3:
-        logger.warning("Low scrape count (%s). Falling back to mock data.", len(deduped))
-        mock_jobs = _load_mock(role)
-        deduped.extend([j.__dict__ for j in mock_jobs])
+        logger.warning(
+            "Low scrape count (%s). Returning live results only.", len(deduped)
+        )
 
     final_jobs = [JobPosting(**job) for job in deduped]
     logger.info("Fetched %s postings for role '%s'", len(final_jobs), role)
