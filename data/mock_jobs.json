@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Data Analyst",
+    "company": "TechCorp",
+    "location": "Bangalore, India",
+    "description": "Data Analyst with Python, SQL, Pandas, NumPy, Tableau, and Excel. Power BI and statistics are a plus.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Data Analyst",
+    "company": "InfoSystems",
+    "location": "Hyderabad, India",
+    "description": "Seeking Data Analyst with strong SQL, Python, Excel, and Tableau skills. Experience with Power BI preferred.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Data Analyst",
+    "company": "DataCo",
+    "location": "Chennai, India",
+    "description": "Data Analyst role focused on SQL, Python, Pandas, and data visualization. Machine learning exposure is helpful.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Data Analyst",
+    "company": "InsightWorks",
+    "location": "Pune, India",
+    "description": "Looking for Excel, SQL, Python, and Tableau expertise. Knowledge of statistics and dashboards required.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Software Engineer",
+    "company": "StartupXYZ",
+    "location": "Mumbai, India",
+    "description": "Software Engineer with Java or Python, REST APIs, Docker, Kubernetes, Git, and SQL. React experience is a plus.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CloudNine",
+    "location": "Remote",
+    "description": "Build backend services with Python, FastAPI, PostgreSQL, Docker, and AWS. CI/CD and Git required.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Software Engineer",
+    "company": "ProductLabs",
+    "location": "Bangalore, India",
+    "description": "Full-stack role using JavaScript, Node.js, React, REST APIs, and SQL. Testing with pytest preferred.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "AI Labs",
+    "location": "Remote",
+    "description": "ML Engineer with Python, TensorFlow, PyTorch, scikit-learn, NLP, and Docker. AWS or GCP experience required.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "VisionNext",
+    "location": "Bangalore, India",
+    "description": "Computer vision role requiring Python, OpenCV, Deep Learning, and PyTorch. Kubernetes and Git are a plus.",
+    "platform": "mock",
+    "url": null
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "DataMind",
+    "location": "Hyderabad, India",
+    "description": "Experience with ML pipelines, Python, SQL, TensorFlow, and MLOps. Familiarity with Docker and CI/CD expected.",
+    "platform": "mock",
+    "url": null
+  }
+]
