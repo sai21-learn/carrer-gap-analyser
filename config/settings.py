@@ -53,5 +53,49 @@ SUPPORTED_ROLES = [
     "Cloud Engineer",
 ]
 
+# --- Skills by Role ---
+ROLE_SKILLS = {
+    "Data Analyst": [
+        "Python", "SQL", "Excel", "Tableau", "Power BI", "Pandas", "NumPy", "Statistics",
+        "Data Visualization", "ETL", "R", "Machine Learning", "Data Cleaning", "Jupyter"
+    ],
+    "Data Scientist": [
+        "Python", "R", "SQL", "Machine Learning", "Deep Learning", "Pandas", "NumPy", "Scikit-learn",
+        "TensorFlow", "PyTorch", "Statistics", "Data Visualization", "Jupyter", "Git", "AWS"
+    ],
+    "Machine Learning Engineer": [
+        "Python", "Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "Scikit-learn",
+        "MLOps", "Docker", "Kubernetes", "AWS", "GCP", "Azure", "Git", "CI/CD", "Model Deployment"
+    ],
+    "Software Engineer": [
+        "Python", "Java", "JavaScript", "C++", "Git", "Docker", "SQL", "REST APIs",
+        "Microservices", "Agile", "Testing", "Design Patterns", "Linux", "AWS"
+    ],
+    "Frontend Developer": [
+        "JavaScript", "TypeScript", "React", "Vue.js", "Angular", "HTML", "CSS", "Sass",
+        "Webpack", "Git", "Responsive Design", "Figma", "Testing", "Node.js"
+    ],
+    "Backend Developer": [
+        "Python", "Java", "Node.js", "SQL", "MongoDB", "REST APIs", "GraphQL", "Docker",
+        "Kubernetes", "AWS", "Redis", "Microservices", "Git", "Testing"
+    ],
+    "DevOps Engineer": [
+        "Docker", "Kubernetes", "AWS", "Terraform", "Jenkins", "Git", "Linux", "Python",
+        "Monitoring", "CI/CD", "Infrastructure as Code", "Ansible", "Prometheus", "Grafana"
+    ],
+    "UI/UX Designer": [
+        "Figma", "Sketch", "Adobe XD", "Prototyping", "User Research", "Wireframing",
+        "Usability Testing", "Design Systems", "HTML", "CSS", "JavaScript", "InVision"
+    ],
+    "Cybersecurity Analyst": [
+        "Network Security", "Ethical Hacking", "SIEM", "Firewalls", "Cryptography", "Risk Assessment",
+        "Compliance", "Incident Response", "Python", "Linux", "Kali Linux", "Penetration Testing"
+    ],
+    "Cloud Engineer": [
+        "AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Python", "Linux",
+        "CI/CD", "Monitoring", "Infrastructure as Code", "Serverless", "Networking"
+    ]
+}
+
 # --- Platforms ---
 SCRAPE_PLATFORMS = ["adzuna"]
