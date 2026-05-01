@@ -95,3 +95,8 @@ class Resource:
     url: str
     platform: str
     type: str
+
+
+@dataclass
+class AnalysisRequest:
+    target_role: str
