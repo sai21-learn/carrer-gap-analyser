@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import ResumeUpload from "@/components/dashboard/ResumeUpload";
+import AnalysisRunner from "@/components/dashboard/AnalysisRunner";
 
 const stats = [
   {
@@ -85,6 +86,7 @@ export default function DashboardPage() {
       </div>
 
       <ResumeUpload />
+      <AnalysisRunner />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-950">
