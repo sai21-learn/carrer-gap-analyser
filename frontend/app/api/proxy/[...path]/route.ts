@@ -65,3 +65,36 @@ export async function GET(
     return NextResponse.json({ detail: "Proxy error" }, { status: 500 })
   }
 }
+
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { path: string[] } }
+) {
+  const session = await getServerSession() as any
+  const token = session?.accessToken
+
+  if (!token) {
+    return NextResponse.json({ detail: "Not authenticated" }, { status: 401 })
+  }
+
+  const path = params.path.join("/")
+  const url = `${BACKEND_URL}/${path}`
+
+  try {
+    const body = await req.json()
+    const res = await fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    const data = await res.json()
+    return NextResponse.json(data, { status: res.status })
+  } catch (error) {
+    console.error("Proxy error:", error)
+    return NextResponse.json({ detail: "Proxy error" }, { status: 500 })
+  }
+}

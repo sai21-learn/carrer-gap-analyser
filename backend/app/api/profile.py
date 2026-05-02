@@ -57,3 +57,22 @@ async def get_profile(
         "user_email": current_user.email,
         "skills": json.loads(profile.current_skills) if profile.current_skills else [],
     }
+
+
+@router.put("/skills")
+async def update_skills(
+    skills_data: dict,
+    current_user: User = Depends(get_current_user),
+    session: Session = Depends(get_session),
+):
+    profile = session.exec(
+        select(Profile).where(Profile.user_id == current_user.id)
+    ).first()
+    if not profile:
+        raise HTTPException(status_code=404, detail="Profile not found")
+
+    profile.current_skills = json.dumps(skills_data.get("skills", []))
+    session.commit()
+    session.refresh(profile)
+
+    return {"message": "Skills updated successfully"}

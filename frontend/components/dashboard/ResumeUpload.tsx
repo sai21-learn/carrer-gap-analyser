@@ -12,6 +12,8 @@ import {
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import SkillNormalization from "./SkillNormalization";
+
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -24,9 +26,10 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsLoading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<
-    "idle" | "success" | "error"
+    "idle" | "success" | "error" | "review"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [extractedSkills, setExtractedSkills] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +66,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
   const handleUpload = async () => {
     if (!file) return;
 
-    setIsUploading(true);
+    setIsLoading(true);
     setUploadStatus("idle");
 
     const formData = new FormData();
@@ -80,6 +83,35 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
         throw new Error(errorData.detail || "Upload failed");
       }
 
+      const data = await response.json();
+      setExtractedSkills(data.skills);
+      setUploadStatus("review");
+    } catch (err) {
+      setUploadStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSaveSkills = async (normalizedSkills: string[]) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/proxy/profile/skills", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ skills: normalizedSkills }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "Failed to save skills");
+      }
+
       setUploadStatus("success");
       setFile(null);
       if (onUploadSuccess) onUploadSuccess();
@@ -89,14 +121,30 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
         err instanceof Error ? err.message : "Something went wrong",
       );
     } finally {
-      setIsUploading(false);
+      setIsLoading(false);
     }
+  };
+
+  const handleCancelReview = () => {
+    setFile(null);
+    setUploadStatus("idle");
   };
 
   const removeFile = () => {
     setFile(null);
     setUploadStatus("idle");
   };
+
+  if (uploadStatus === "review") {
+    return (
+      <SkillNormalization
+        initialSkills={extractedSkills}
+        onSave={handleSaveSkills}
+        onCancel={handleCancelReview}
+      />
+    );
+  }
+
 
   return (
     <div className="rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-950">
