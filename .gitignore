@@ -49,6 +49,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+test.db
 
 # Translations
 *.mo
@@ -145,5 +146,6 @@ node_modules/
 .omg/
 .next/
 .worktrees/
-node_modules/
-.next/
+__pycache__/
+.pytest_cache/
+test.db
