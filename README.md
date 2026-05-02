@@ -62,11 +62,11 @@
     pip install -r requirements.txt
     ```
     - Create a `.env` file and set your `DATABASE_URL` and other environment variables (see `.env.example`).
-    - Start the backend server:
+    - Start the backend server (from the `backend` directory):
       ```bash
       uvicorn app.main:app --reload
       ```
-    - Start the Celery worker:
+    - Start the Celery worker (from the `backend` directory):
       ```bash
       celery -A app.celery_worker worker --loglevel=info
       ```
