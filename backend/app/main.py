@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 
-from .api import auth, profile
+from .api import analysis, auth, profile
 from .db import init_db
 
 app = FastAPI(title="CareerCompass AI API")
 
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(profile.router, prefix="/profile", tags=["profile"])
+app.include_router(analysis.router, prefix="/analysis", tags=["analysis"])
 
 
 @app.get("/health")
