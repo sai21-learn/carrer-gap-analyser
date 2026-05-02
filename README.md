@@ -1,74 +1,69 @@
-# AI Skill Gap Analyzer
+# CareerCompass AI
 
 ## Overview
-AI Skill Gap Analyzer is a Python + Streamlit application that compares a student’s skills to real job market demand and generates a skill gap report with curated learning resources. It supports mock data for offline development and optional live data via the Adzuna API.
+CareerCompass AI is a full-stack platform that helps users identify, track, and close skill gaps for their target roles. It transforms a synchronous prototype into an asynchronous, persistent, and intelligent system.
 
-## Key Features
-- Skill extraction with spaCy phrase matching and normalization
-- Semantic similarity matching (spaCy vectors; optional BERT)
-- Gap analysis with ranked missing skills
-- Resource recommendations per gap
-- Streamlit dashboard with metrics and charts
+## 🚀 Transformation Phases
+
+### ✅ Phase 1: Backend Foundation & Authentication
+- **FastAPI Server**: Scalable and asynchronous core.
+- **PostgreSQL Database**: Persistent storage for users, profiles, and historical analyses.
+- **JWT Auth**: Secure login and registration with OAuth2 Password Bearer.
+
+### ✅ Phase 2: Modern Frontend & Dashboard
+- **Next.js 14**: Modern React framework with App Router.
+- **Tailwind CSS**: Sleek, responsive design.
+- **Dashboard UI**: Comprehensive overview of skills, match scores, and progress.
+
+### ✅ Phase 3: Automated Data Ingestion
+- **Resume Parsing**: Upload PDF resumes to automatically extract skills.
+- **NLP Integration**: Seamlessly connects extraction logic to user profiles.
+
+### ✅ Phase 4: High-Performance Async Engine
+- **Redis & Celery**: Heavy scraping and analysis tasks are offloaded to background workers.
+- **Real-time Status**: Frontend polling keeps users informed of progress.
+
+### ✅ Phase 5: Intelligence & Roadmaps
+- **Roadmap.sh Integration**: Maps skill gaps to industry-standard learning paths.
+- **Interactive Visualization**: Zoomable, clickable learning trees powered by `react-flow`.
 
 ## Project Structure
-- `app.py` — Streamlit entry point
-- `config/` — configuration and feature toggles
-- `scraper/` — job scraping modules
-- `nlp/` — skill extraction and similarity matching
-- `analysis/` — gap analysis logic
-- `recommender/` — resource lookup
-- `ui/` — Streamlit views and charts
-- `data/` — mock jobs, skill aliases, resource database
-- `tests/` — pytest suite and fixtures
+- `backend/` — FastAPI application, Celery workers, and database logic.
+- `frontend/` — Next.js application and dashboard components.
+- `nlp/` — Skill extraction and similarity matching services.
+- `scraper/` — Job market data collection modules.
+- `scripts/` — Utility scripts for data synchronization.
+- `data/` — Local data store for mock jobs and roadmaps.
 
-## Requirements
-- Python 3.11+ recommended
-- Virtual environment (venv)
+## Setup & Development
 
-## Setup
+### Backend
 ```bash
+cd backend
 python -m venv .venv
-.venv/bin/pip install -r requirements.txt
-.venv/bin/python -m spacy download en_core_web_md
+source .venv/bin/activate
+pip install -r requirements.txt
+# Start FastAPI
+uvicorn app.main:app --reload
+# Start Celery Worker
+celery -A app.celery_worker worker --loglevel=info
 ```
 
-## Configuration
-Copy `.env.example` to `.env` if you want to manage toggles via environment variables. The main toggles in `config/settings.py` are:
-- `USE_MOCK_DATA`: use mock job postings instead of live scraping
-- `ENABLE_BERT`: enable BERT-based similarity (slower, more accurate)
-
-### Adzuna API (Live Data)
-Add your Adzuna credentials to `.env`:
-- `ADZUNA_APP_ID`
-- `ADZUNA_APP_KEY`
-
-Default market is India (`ADZUNA_COUNTRY=in`) and default location is `India`. You can override these in `.env`.
-
-### Job Filters (UI)
-The UI exposes optional filters that map directly to Adzuna query parameters:
-- `Location` → `where`
-- `Sort by` → `sort_by` (UI supports Default or Salary; you can override with a custom value)
-- `Exclude keywords` → `what_exclude`
-- `Minimum salary` → `salary_min`
-- `Maximum salary` → `salary_max`
-- `Full-time` → `full_time`
-- `Part-time` → `part_time`
-- `Permanent` → `permanent`
-- `Contract` → `contract`
-
-## Run Locally
+### Frontend
 ```bash
-streamlit run app.py
+cd frontend
+npm install
+npm run dev
 ```
+
+### Infrastructure
+- **Redis**: Required for Celery (running on `localhost:6379`).
+- **PostgreSQL**: Required for data persistence.
 
 ## Testing
 ```bash
-PYTHONPATH=. .venv/bin/pytest tests/ -v
+pytest tests/
 ```
 
-## Notes
-- Tests do not use live scraping; they rely on fixtures in `tests/fixtures/`.
-- Logs are written to `logs/app.log`.
-
 ## License
-Add your license information here.
+MIT
