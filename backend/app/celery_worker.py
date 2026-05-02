@@ -4,9 +4,9 @@ import logging
 from typing import Dict, List
 
 from . import models
-from .core.analysis.gap_analyzer import analyze as analyze_gaps
-from .core.nlp.skill_extractor import aggregate_skills
-from .core.scraper.job_scraper import fetch_jobs
+from .app.core.analysis.gap_analyzer import analyze as analyze_gaps
+from .app.core.nlp.skill_extractor import aggregate_skills
+from .app.core.scraper.job_scraper import fetch_jobs
 from .celery_utils import celery_app
 
 logger = logging.getLogger(__name__)
