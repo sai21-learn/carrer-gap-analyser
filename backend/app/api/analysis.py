@@ -7,8 +7,11 @@ from ..auth import get_current_user
 from ..celery_utils import celery_app
 from ..celery_worker import run_gap_analysis_task
 from ..db import get_session
+from ..services.roadmap_service import RoadmapService
 
 router = APIRouter()
+
+roadmap_service = RoadmapService()
 
 
 @router.post("/start", status_code=202)
@@ -43,3 +46,26 @@ def task_status(task_id: str):
     task = celery_app.AsyncResult(task_id)
     response = {"state": task.state, "result": task.result}
     return response
+
+
+@router.get("/roadmap/{task_id}", response_model=models.RoadmapResponse)
+def get_personalized_roadmap(task_id: str):
+    """
+    Generates a personalized roadmap based on the results of a gap analysis.
+    """
+    task = celery_app.AsyncResult(task_id)
+    if not task.ready():
+        raise HTTPException(status_code=400, detail="Analysis task is not complete.")
+
+    result = task.result
+    if not result or "error" in result:
+        raise HTTPException(
+            status_code=500, detail=result.get("error", "Task result not found")
+        )
+
+    # Extract role and gaps from result
+    role = result.get("target_role")
+    gaps = [gap["skill"] for gap in result.get("gaps", [])]
+
+    roadmap = roadmap_service.get_roadmap_for_gaps(role, gaps)
+    return roadmap
