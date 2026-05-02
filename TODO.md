@@ -14,7 +14,7 @@
     - [x] Step 1: Add Roadmap models to models.py
     - [x] Step 2: Implement the roadmap endpoint in analysis.py
     - [x] Step 3: Commit and push
-- [ ] **Task 4: Frontend Visualization with React Flow**
+- [x] **Task 4: Frontend Visualization with React Flow**
     - [x] Step 1: Install react-flow
     - [x] Step 2: Create RoadmapVisualizer component
     - [x] Step 3: Create Roadmap page
