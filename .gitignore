@@ -140,3 +140,5 @@ TASKS.md
 TESTING.md
 UI_SPEC.md
 .worktrees/
+node_modules/
+.next/
