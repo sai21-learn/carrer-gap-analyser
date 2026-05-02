@@ -3,10 +3,10 @@ from __future__ import absolute_import
 import logging
 from typing import Dict, List
 
-from .. import models
-from ..analysis.gap_analyzer import analyze as analyze_gaps
-from ..nlp.skill_extractor import aggregate_skills
-from ..scraper.job_scraper import fetch_jobs
+from . import models
+from analysis.gap_analyzer import analyze as analyze_gaps
+from nlp.skill_extractor import aggregate_skills
+from scraper.job_scraper import fetch_jobs
 from .celery_utils import celery_app
 
 logger = logging.getLogger(__name__)
@@ -44,7 +44,7 @@ def run_gap_analysis_task(target_role: str, user_skills: List[str]) -> Dict:
     report = analyze_gaps(student_profile, industry_skills)
 
     logger.info("Gap analysis complete for role '%s'.", target_role)
-    return report.dict()
+    return report.model_dump()
 
 
 @celery_app.task

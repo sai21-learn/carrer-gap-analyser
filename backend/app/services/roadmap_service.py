@@ -1,32 +1,38 @@
-import json
 import os
-from typing import Dict, List, Optional
-
-STORAGE_DIR = "backend/app/data/roadmaps"
-
+import json
+from typing import List, Dict
 
 class RoadmapService:
-    @staticmethod
-    def get_roadmap(roadmap_id: str) -> Optional[Dict]:
-        file_path = os.path.join(STORAGE_DIR, f"{roadmap_id}.json")
-        if not os.path.exists(file_path):
-            return None
+    def __init__(self):
+        self.data_dir = "backend/app/data/roadmaps"
+        self.role_map = {
+            "Frontend Developer": "frontend",
+            "Backend Developer": "backend",
+            "DevOps Engineer": "devops"
+        }
 
-        with open(file_path, "r") as f:
-            return json.load(f)
-
-    @staticmethod
-    def map_skills_to_roadmap(skills: List[str], roadmap_id: str) -> Dict:
-        roadmap = RoadmapService.get_roadmap(roadmap_id)
-        if not roadmap:
+    def get_roadmap_for_gaps(self, role: str, gap_skills: List[str]) -> Dict:
+        slug = self.role_map.get(role)
+        if not slug:
             return {"nodes": [], "edges": []}
-
-        # Simplified mapping logic for prototype
-        nodes = []
-        for node in roadmap.get("nodes", []):
-            status = "matched" if node["label"] in skills else "gap"
-            nodes.append(
-                {"id": node["id"], "data": {"label": node["label"]}, "status": status}
-            )
-
-        return {"nodes": nodes, "edges": roadmap.get("edges", [])}
+            
+        path = os.path.join(self.data_dir, slug, "roadmap.json")
+        if not os.path.exists(path):
+            return {"nodes": [], "edges": []}
+            
+        with open(path, "r") as f:
+            data = json.load(f)
+            
+        nodes = data.get("nodes", [])
+        edges = data.get("edges", [])
+        
+        normalized_gaps = [s.lower() for s in gap_skills]
+        
+        for node in nodes:
+            label = node.get("data", {}).get("label", "").lower()
+            if label in normalized_gaps:
+                node["status"] = "gap"
+            else:
+                node["status"] = "completed"
+                
+        return {"nodes": nodes, "edges": edges}

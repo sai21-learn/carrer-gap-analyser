@@ -145,3 +145,5 @@ node_modules/
 .omg/
 .next/
 .worktrees/
+node_modules/
+.next/

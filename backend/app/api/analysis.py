@@ -13,6 +13,8 @@ from ..services.roadmap_service import RoadmapService
 
 router = APIRouter()
 
+roadmap_service = RoadmapService()
+
 
 @router.post("/start", status_code=202)
 def start_analysis(
@@ -29,8 +31,10 @@ def start_analysis(
     if not profile:
         raise HTTPException(status_code=404, detail="User profile not found.")
 
+    user_skills = json.loads(profile.current_skills) if profile.current_skills else []
+
     task = run_gap_analysis_task.delay(
-        target_role=analysis_request.target_role, user_skills=profile.current_skills
+        target_role=analysis_request.target_role, user_skills=user_skills
     )
 
     return {"task_id": task.id}
@@ -46,28 +50,24 @@ def task_status(task_id: str):
     return response
 
 
-@router.get("/{analysis_id}/roadmap")
-async def get_personalized_roadmap(
-    analysis_id: int,
-    current_user: User = Depends(get_current_user),
-    session: Session = Depends(get_session),
-):
-    # For prototype, we'll use the user's latest profile skills
-    profile = session.exec(
-        select(Profile).where(Profile.user_id == current_user.id)
-    ).first()
+@router.get("/roadmap/{task_id}", response_model=models.RoadmapResponse)
+def get_personalized_roadmap(task_id: str):
+    """
+    Generates a personalized roadmap based on the results of a gap analysis.
+    """
+    task = celery_app.AsyncResult(task_id)
+    if not task.ready():
+        raise HTTPException(status_code=400, detail="Analysis task is not complete.")
 
-    if not profile:
-        raise HTTPException(status_code=404, detail="Profile not found")
+    result = task.result
+    if not result or "error" in result:
+        raise HTTPException(
+            status_code=500, detail=result.get("error", "Task result not found")
+        )
 
-    skills = json.loads(profile.current_skills) if profile.current_skills else []
+    # Extract role and gaps from result
+    role = result.get("target_role")
+    gaps = [gap["skill"] for gap in result.get("gaps", [])]
 
-    # Map to a default roadmap (e.g., backend) or based on target_role
-    roadmap_id = "backend"  # Default for now
-    if profile.target_role == "Frontend Developer":
-        roadmap_id = "frontend"
-    elif profile.target_role == "DevOps Engineer":
-        roadmap_id = "devops"
-
-    roadmap_data = RoadmapService.map_skills_to_roadmap(skills, roadmap_id)
-    return roadmap_data
+    roadmap = roadmap_service.get_roadmap_for_gaps(role, gaps)
+    return roadmap
