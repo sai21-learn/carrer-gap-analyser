@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 from typing import List
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
+ROOT_DIR = Path(__file__).resolve().parents[3]
 ALIASES_PATH = ROOT_DIR / "data_store" / "skill_aliases.json"
 
 

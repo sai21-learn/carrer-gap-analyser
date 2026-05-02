@@ -7,8 +7,8 @@ from urllib.parse import quote_plus
 
 from bs4 import BeautifulSoup
 
-from backend.core.config.settings import MAX_JOBS_PER_PLATFORM, REQUEST_DELAY_SECONDS, USE_MOCK_DATA
-from backend.core.scraper.utils import clean_text, make_request
+from app.core.config.settings import MAX_JOBS_PER_PLATFORM, REQUEST_DELAY_SECONDS, USE_MOCK_DATA
+from app.core.scraper.utils import clean_text, make_request
 
 logger = logging.getLogger(__name__)
 

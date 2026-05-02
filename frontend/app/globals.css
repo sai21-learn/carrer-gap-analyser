@@ -3,19 +3,66 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #3f3f46;
+  --muted-foreground: #71717a;
+  --border: #18181b;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --accent: #09090b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-black text-white antialiased selection:bg-white selection:text-black;
+    font-family: var(--font-tomorrow), system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-white/5;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-container {
+    @apply px-8 md:px-16 lg:px-24;
+  }
+
+  .text-minimal {
+    @apply text-[10px] tracking-[0.3em] font-medium uppercase;
+  }
+
+  .btn-minimal {
+    @apply px-6 py-3 border border-white/10 hover:bg-white hover:text-black transition-all text-minimal text-center;
+  }
+
+  .card-minimal {
+    @apply border border-white/5 bg-white/[0.02] p-8 transition-all hover:bg-white/[0.04];
+  }
+}
+
+.font-tech {
+  font-family: var(--font-tomorrow), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.glass {
+  @apply bg-black/40 backdrop-blur-xl border border-white/10;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
 }

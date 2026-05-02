@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 from typing import List, Optional
 
-from backend.core.config.settings import (
+from app.core.config.settings import (
     ADZUNA_APP_ID,
     ADZUNA_APP_KEY,
     ADZUNA_CONTRACT,
@@ -17,8 +17,8 @@ from backend.core.config.settings import (
     ADZUNA_WHAT_EXCLUDE,
     MAX_JOBS_PER_PLATFORM,
 )
-from backend.app.models import JobSearchFilters
-from backend.core.scraper.utils import make_request
+from app.schemas import JobSearchFilters
+from app.core.scraper.utils import make_request
 
 logger = logging.getLogger(__name__)
 

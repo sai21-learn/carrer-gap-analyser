@@ -91,6 +91,7 @@ celerybeat-schedule
 
 # Environments
 .env
+.env.local
 .venv
 env/
 venv/
@@ -149,3 +150,7 @@ node_modules/
 __pycache__/
 .pytest_cache/
 test.db
+
+.gemini/
+.github/
+gha-creds-*.json

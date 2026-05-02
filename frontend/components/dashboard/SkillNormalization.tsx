@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { X, Check, Edit, Plus } from "lucide-react";
+import { X, Check, Edit, Plus, BrainCircuit } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SkillNormalizationProps {
   initialSkills: string[];
@@ -44,77 +45,83 @@ export default function SkillNormalization({
   };
 
   return (
-    <div className="rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-950">
-      <h2 className="text-lg font-semibold mb-4">Review Your Skills</h2>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-6">
-        Edit, add, or remove skills to ensure your profile is accurate.
+    <div className="border border-white/10 bg-white/5 p-8">
+      <div className="flex items-center gap-3 mb-8">
+        <BrainCircuit className="h-4 w-4 text-white" />
+        <h2 className="text-[10px] font-bold uppercase tracking-[0.2em]">Data_Review_Terminal</h2>
+      </div>
+
+      <p className="text-[10px] text-muted-foreground uppercase tracking-widest mb-10 leading-relaxed">
+        Verify and normalize extracted skill data before system synchronization.
       </p>
 
-      <div className="space-y-2 mb-4">
+      <div className="space-y-3 mb-8">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex items-center justify-between rounded-lg bg-zinc-50 p-2 dark:bg-zinc-800"
+            className="flex items-center justify-between border border-white/5 bg-white/5 p-4 group hover:border-white/20 transition-all"
           >
             {editIndex === index ? (
               <input
                 type="text"
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
-                className="bg-transparent focus:outline-none flex-grow"
+                className="bg-transparent focus:outline-none flex-grow text-[10px] font-bold uppercase tracking-widest text-white"
                 onBlur={() => handleUpdateSkill(index)}
                 onKeyDown={(e) => e.key === "Enter" && handleUpdateSkill(index)}
                 autoFocus
               />
             ) : (
-              <span>{skill}</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-white transition-colors">
+                {skill}
+              </span>
             )}
-            <div className="flex items-center">
+            <div className="flex items-center gap-4">
               <button
                 onClick={() => handleEdit(index)}
-                className="p-1 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                className="text-muted-foreground hover:text-white transition-colors"
               >
-                <Edit className="h-4 w-4" />
+                <Edit className="h-3 w-3" />
               </button>
               <button
                 onClick={() => handleRemoveSkill(index)}
-                className="p-1 text-red-500 hover:text-red-700 dark:hover:text-red-400"
+                className="text-muted-foreground hover:text-red-500 transition-colors"
               >
-                <X className="h-4 w-4" />
+                <X className="h-3 w-3" />
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex space-x-2">
+      <div className="flex gap-4 mb-10">
         <input
           type="text"
           value={newSkill}
           onChange={(e) => setNewSkill(e.target.value)}
-          placeholder="Add a new skill"
-          className="flex-grow rounded-lg border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-800"
+          placeholder="ADD_MANUAL_NODE"
+          className="flex-grow bg-white/5 border border-white/10 px-4 py-3 text-[10px] font-bold uppercase tracking-widest focus:outline-none focus:border-white/30"
         />
         <button
           onClick={handleAddSkill}
-          className="rounded-lg bg-blue-100 p-2 text-blue-600 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-400 dark:hover:bg-blue-900"
+          className="aspect-square flex items-center justify-center border border-white/10 hover:bg-white hover:text-black transition-all p-3"
         >
-          <Plus className="h-5 w-5" />
+          <Plus className="h-4 w-4" />
         </button>
       </div>
 
-      <div className="flex justify-end space-x-4 mt-6">
+      <div className="flex justify-end gap-6 border-t border-white/10 pt-8">
         <button
           onClick={onCancel}
-          className="rounded-lg px-4 py-2 text-sm font-semibold text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-white transition-colors"
         >
-          Cancel
+          ABORT_PROCESS
         </button>
         <button
           onClick={() => onSave(skills)}
-          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          className="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-zinc-200 transition-all"
         >
-          Save Skills
+          COMMIT_CHANGES
         </button>
       </div>
     </div>

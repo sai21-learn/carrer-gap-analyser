@@ -3,8 +3,8 @@ import logging
 from pathlib import Path
 from typing import List
 
-from backend.core.config.settings import MAX_JOBS_PER_PLATFORM, USE_MOCK_DATA
-from backend.core.scraper.utils import clean_text, get_chrome_driver
+from app.core.config.settings import MAX_JOBS_PER_PLATFORM, USE_MOCK_DATA
+from app.core.scraper.utils import clean_text, get_chrome_driver
 
 logger = logging.getLogger(__name__)
 

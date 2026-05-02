@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth/next"
+import { auth } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"
 
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000"
@@ -7,8 +7,8 @@ export async function POST(
   req: NextRequest,
   { params }: { params: { path: string[] } }
 ) {
-  const session = await getServerSession() as any
-  const token = session?.accessToken
+  const { getToken } = await auth()
+  const token = await getToken()
 
   if (!token) {
     return NextResponse.json({ detail: "Not authenticated" }, { status: 401 })
@@ -40,8 +40,8 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { path: string[] } }
 ) {
-  const session = await getServerSession() as any
-  const token = session?.accessToken
+  const { getToken } = await auth()
+  const token = await getToken()
 
   if (!token) {
     return NextResponse.json({ detail: "Not authenticated" }, { status: 401 })
@@ -70,8 +70,8 @@ export async function PUT(
   req: NextRequest,
   { params }: { params: { path: string[] } }
 ) {
-  const session = await getServerSession() as any
-  const token = session?.accessToken
+  const { getToken } = await auth()
+  const token = await getToken()
 
   if (!token) {
     return NextResponse.json({ detail: "Not authenticated" }, { status: 401 })

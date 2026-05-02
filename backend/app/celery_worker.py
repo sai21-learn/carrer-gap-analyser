@@ -3,10 +3,10 @@ from __future__ import absolute_import
 import logging
 from typing import Dict, List
 
-from . import models
-from .app.core.analysis.gap_analyzer import analyze as analyze_gaps
-from .app.core.nlp.skill_extractor import aggregate_skills
-from .app.core.scraper.job_scraper import fetch_jobs
+from . import models, schemas
+from .core.analysis.gap_analyzer import analyze as analyze_gaps
+from .core.nlp.skill_extractor import aggregate_skills
+from .core.scraper.job_scraper import fetch_jobs
 from .celery_utils import celery_app
 
 logger = logging.getLogger(__name__)
@@ -36,8 +36,8 @@ def run_gap_analysis_task(target_role: str, user_skills: List[str]) -> Dict:
         return {"error": "Could not extract industry skills."}
 
     # 3. Create a student profile
-    student_profile = models.StudentProfile(
-        name="temp", target_role=target_role, skills=user_skills
+    student_profile = schemas.StudentProfile(
+        name="User", target_role=target_role, skills=user_skills
     )
 
     # 4. Analyze the gap

@@ -9,14 +9,9 @@ import {
   Loader2,
   X,
 } from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/lib/utils";
 
 import SkillNormalization from "./SkillNormalization";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 interface ResumeUploadProps {
   onUploadSuccess?: () => void;
@@ -37,7 +32,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
       const selectedFile = e.target.files[0];
       if (selectedFile.type !== "application/pdf") {
         setUploadStatus("error");
-        setErrorMessage("Please upload a PDF file.");
+        setErrorMessage("INVALID_FORMAT: PDF_REQUIRED");
         return;
       }
       setFile(selectedFile);
@@ -55,7 +50,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
       const selectedFile = e.dataTransfer.files[0];
       if (selectedFile.type !== "application/pdf") {
         setUploadStatus("error");
-        setErrorMessage("Please upload a PDF file.");
+        setErrorMessage("INVALID_FORMAT: PDF_REQUIRED");
         return;
       }
       setFile(selectedFile);
@@ -80,7 +75,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.detail || "Upload failed");
+        throw new Error(errorData.detail || "UPLOAD_FAILED");
       }
 
       const data = await response.json();
@@ -89,7 +84,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
     } catch (err) {
       setUploadStatus("error");
       setErrorMessage(
-        err instanceof Error ? err.message : "Something went wrong",
+        err instanceof Error ? err.message : "SYSTEM_ERROR",
       );
     } finally {
       setIsLoading(false);
@@ -109,7 +104,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.detail || "Failed to save skills");
+        throw new Error(errorData.detail || "SAVE_FAILED");
       }
 
       setUploadStatus("success");
@@ -118,7 +113,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
     } catch (err) {
       setUploadStatus("error");
       setErrorMessage(
-        err instanceof Error ? err.message : "Something went wrong",
+        err instanceof Error ? err.message : "SYSTEM_ERROR",
       );
     } finally {
       setIsLoading(false);
@@ -147,12 +142,11 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
 
 
   return (
-    <div className="rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-950">
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold">Update Your Resume</h2>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">
-          Upload your latest resume (PDF) to analyze your skills and get better
-          recommendations.
+    <div className="card-minimal">
+      <div className="mb-8">
+        <h2 className="text-minimal text-white/40">RESUME_INJECTION</h2>
+        <p className="text-[10px] text-white/20 uppercase tracking-widest mt-1">
+          Sync profile with system data.
         </p>
       </div>
 
@@ -160,10 +154,11 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
         onDragOver={onDragOver}
         onDrop={onDrop}
         className={cn(
-          "relative mt-2 flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-8 transition-colors",
+          "relative mt-2 flex flex-col items-center justify-center border border-dashed transition-all",
           file
-            ? "border-blue-500 bg-blue-50/50 dark:bg-blue-900/10"
-            : "border-zinc-200 hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700",
+            ? "border-white/40 bg-white/5"
+            : "border-white/5 hover:border-white/20 bg-white/2",
+          "p-12"
         )}
       >
         <input
@@ -176,48 +171,46 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
 
         {file ? (
           <div className="flex w-full flex-col items-center">
-            <div className="mb-4 rounded-full bg-blue-100 p-3 dark:bg-blue-900/30">
-              <FileText className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+            <div className="mb-4 text-white/40">
+              <FileText className="h-8 w-8" />
             </div>
-            <p className="mb-1 text-sm font-medium">{file.name}</p>
-            <p className="text-xs text-zinc-500">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest">{file.name}</p>
+            <p className="text-[10px] text-white/20">
               {(file.size / 1024 / 1024).toFixed(2)} MB
             </p>
             <button
               onClick={removeFile}
-              className="absolute right-4 top-4 rounded-full p-1 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 dark:hover:bg-zinc-800"
+              className="absolute right-4 top-4 text-white/20 hover:text-white transition-colors"
             >
               <X className="h-4 w-4" />
             </button>
           </div>
         ) : (
           <div
-            className="flex flex-col items-center cursor-pointer"
+            className="flex flex-col items-center cursor-pointer group"
             onClick={() => fileInputRef.current?.click()}
           >
-            <div className="mb-4 rounded-full bg-zinc-100 p-3 dark:bg-zinc-800">
-              <Upload className="h-8 w-8 text-zinc-500" />
+            <div className="mb-4 text-white/20 group-hover:text-white/40 transition-colors">
+              <Upload className="h-8 w-8" />
             </div>
-            <p className="mb-1 text-sm font-medium">
-              Click to upload or drag and drop
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-colors">
+              SELECT_FILE
             </p>
-            <p className="text-xs text-zinc-500">PDF only (max 5MB)</p>
+            <p className="text-[10px] text-white/20 uppercase tracking-widest opacity-50">PDF_ONLY</p>
           </div>
         )}
       </div>
 
       {uploadStatus === "success" && (
-        <div className="mt-4 flex items-center space-x-2 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400">
-          <CheckCircle2 className="h-4 w-4" />
-          <span>
-            Resume successfully analyzed! Your skills are being updated.
-          </span>
+        <div className="mt-6 flex items-center space-x-3 text-[10px] font-bold uppercase tracking-widest text-emerald-500/60">
+          <CheckCircle2 className="h-3 w-3" />
+          <span>DATA_INJECTED</span>
         </div>
       )}
 
       {uploadStatus === "error" && (
-        <div className="mt-4 flex items-center space-x-2 rounded-lg bg-red-50 p-3 text-sm text-red-700 dark:bg-red-900/20 dark:text-red-400">
-          <AlertCircle className="h-4 w-4" />
+        <div className="mt-6 flex items-center space-x-3 text-[10px] font-bold uppercase tracking-widest text-red-500/60">
+          <AlertCircle className="h-3 w-3" />
           <span>{errorMessage}</span>
         </div>
       )}
@@ -226,19 +219,17 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
         onClick={handleUpload}
         disabled={!file || isUploading}
         className={cn(
-          "mt-6 w-full flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-all",
-          !file || isUploading
-            ? "bg-zinc-100 text-zinc-400 cursor-not-allowed dark:bg-zinc-800"
-            : "bg-blue-600 text-white hover:bg-blue-700 shadow-sm",
+          "mt-8 w-full btn-minimal",
+          (!file || isUploading) && "opacity-20 cursor-not-allowed"
         )}
       >
         {isUploading ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Analyzing...
-          </>
+          <div className="flex items-center justify-center gap-2">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            <span>EXTRACTING...</span>
+          </div>
         ) : (
-          "Analyze Resume"
+          "EXECUTE_EXTRACTION"
         )}
       </button>
     </div>

@@ -11,9 +11,9 @@ except Exception:  # noqa: BLE001
     spacy = None
     PhraseMatcher = None
 
-from backend.core.config.settings import SPACY_MODEL
-from backend.app.models import JobPosting
-from backend.core.nlp.skill_normalizer import normalize_list
+from app.core.config.settings import SPACY_MODEL
+from app.schemas import JobPosting
+from app.core.nlp.skill_normalizer import normalize_list
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
 ALIASES_PATH = ROOT_DIR / "data_store" / "skill_aliases.json"

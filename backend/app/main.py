@@ -1,22 +1,45 @@
+import logging
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-from .api import analysis, auth, profile
-from .api import analysis, auth, profile, feedback
+from .api import analysis, feedback, profile
+from .core.config.settings import settings
+from .db import init_db
 
-app = FastAPI(title="CareerCompass AI API")
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
 
-app.include_router(auth.router, prefix="/auth", tags=["auth"])
-app.include_router(profile.router, prefix="/profile", tags=["profile"])
-app.include_router(analysis.router, prefix="/analysis", tags=["analysis"])
-app.include_router(feedback.router, prefix="/feedback", tags=["feedback"])
+app = FastAPI(
+    title=settings.PROJECT_NAME,
+    openapi_url=f"{settings.API_V1_STR}/openapi.json"
+)
 
+# Set all CORS enabled origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify actual origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include Routers
+app.include_router(profile.router, prefix=f"{settings.API_V1_STR}/profile", tags=["profile"])
+app.include_router(analysis.router, prefix=f"{settings.API_V1_STR}/analysis", tags=["analysis"])
+app.include_router(feedback.router, prefix=f"{settings.API_V1_STR}/feedback", tags=["feedback"])
 
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {"status": "ok", "project": settings.PROJECT_NAME}
 
 
 @app.on_event("startup")
 def on_startup():
+    logger.info("Initializing database...")
     init_db()
+    logger.info("Application startup complete.")

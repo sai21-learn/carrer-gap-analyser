@@ -1,9 +1,9 @@
 from typing import Dict, List
 
-from backend.core.config.settings import PARTIAL_MATCH_MIN_SCORE, SIMILARITY_THRESHOLD
-from backend.app.models import GapReport, SkillResult, StudentProfile
-from backend.core.nlp.semantic_matcher import compute_similarity
-from backend.core.nlp.skill_normalizer import normalize_list
+from app.core.config.settings import PARTIAL_MATCH_MIN_SCORE, SIMILARITY_THRESHOLD
+from app.schemas import GapReport, SkillResult, StudentProfile
+from app.core.nlp.semantic_matcher import compute_similarity
+from app.core.nlp.skill_normalizer import normalize_list
 
 
 def analyze(student_profile: StudentProfile, industry_skills: Dict[str, int]) -> GapReport:

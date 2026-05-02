@@ -4,11 +4,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import List, Optional
 
-from backend.core.config.settings import SCRAPE_PLATFORMS, SUPPORTED_ROLES, USE_MOCK_DATA
-from backend.app.models import JobPosting, JobSearchFilters
-from backend.core.scraper.adzuna_scraper import scrape_adzuna
-from backend.core.scraper.linkedin_scraper import scrape_linkedin
-from backend.core.scraper.naukri_scraper import scrape_naukri
+from app.core.config.settings import SCRAPE_PLATFORMS, SUPPORTED_ROLES, USE_MOCK_DATA
+from app.schemas import JobPosting, JobSearchFilters
+from app.core.scraper.adzuna_scraper import scrape_adzuna
+from app.core.scraper.linkedin_scraper import scrape_linkedin
+from app.core.scraper.naukri_scraper import scrape_naukri
 
 logger = logging.getLogger(__name__)
 
