@@ -1,9 +1,9 @@
 import streamlit as st
 
-from analysis.gap_analyzer import analyze
-from nlp.skill_extractor import aggregate_skills
-from recommender.resource_recommender import recommend_all
-from scraper.job_scraper import fetch_jobs
+from backend.core.analysis.gap_analyzer import analyze
+from backend.core.nlp.skill_extractor import aggregate_skills
+from backend.core.recommender.resource_recommender import recommend_all
+from backend.core.scraper.job_scraper import fetch_jobs
 from ui.input_form import render_input_form
 from ui.report_view import render_report
 

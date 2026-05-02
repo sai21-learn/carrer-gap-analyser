@@ -7,14 +7,14 @@ from urllib.parse import quote_plus
 
 from bs4 import BeautifulSoup
 
-from config.settings import MAX_JOBS_PER_PLATFORM, REQUEST_DELAY_SECONDS, USE_MOCK_DATA
-from scraper.utils import clean_text, make_request
+from backend.core.config.settings import MAX_JOBS_PER_PLATFORM, REQUEST_DELAY_SECONDS, USE_MOCK_DATA
+from backend.core.scraper.utils import clean_text, make_request
 
 logger = logging.getLogger(__name__)
 
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-MOCK_PATH = ROOT_DIR / "data" / "mock_jobs.json"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+MOCK_PATH = ROOT_DIR / "data_store" / "mock_jobs.json"
 
 
 def _load_mock(role: str, limit: int) -> List[dict]:

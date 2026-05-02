@@ -4,16 +4,16 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import List, Optional
 
-from config.settings import SCRAPE_PLATFORMS, SUPPORTED_ROLES, USE_MOCK_DATA
-from models import JobPosting, JobSearchFilters
-from scraper.adzuna_scraper import scrape_adzuna
-from scraper.linkedin_scraper import scrape_linkedin
-from scraper.naukri_scraper import scrape_naukri
+from backend.core.config.settings import SCRAPE_PLATFORMS, SUPPORTED_ROLES, USE_MOCK_DATA
+from backend.app.models import JobPosting, JobSearchFilters
+from backend.core.scraper.adzuna_scraper import scrape_adzuna
+from backend.core.scraper.linkedin_scraper import scrape_linkedin
+from backend.core.scraper.naukri_scraper import scrape_naukri
 
 logger = logging.getLogger(__name__)
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-MOCK_PATH = ROOT_DIR / "data" / "mock_jobs.json"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+MOCK_PATH = ROOT_DIR / "data_store" / "mock_jobs.json"
 
 PLATFORM_FUNCS = {
     "adzuna": scrape_adzuna,

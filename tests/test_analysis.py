@@ -1,6 +1,6 @@
-from analysis.skill_classifier import classify_skill
-from analysis.gap_analyzer import analyze
-from models import StudentProfile
+from backend.core.analysis.skill_classifier import classify_skill
+from backend.core.analysis.gap_analyzer import analyze
+from backend.app.models import StudentProfile
 
 
 def test_classify_matched():

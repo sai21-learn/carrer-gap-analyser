@@ -1,8 +1,8 @@
 from typing import List, Tuple
 
-from config.settings import PARTIAL_MATCH_MIN_SCORE, SIMILARITY_THRESHOLD
-from nlp.semantic_matcher import compute_similarity
-from nlp.skill_normalizer import normalize, normalize_list
+from backend.core.config.settings import PARTIAL_MATCH_MIN_SCORE, SIMILARITY_THRESHOLD
+from backend.core.nlp.semantic_matcher import compute_similarity
+from backend.core.nlp.skill_normalizer import normalize, normalize_list
 
 
 def classify_skill(student_skill: str, industry_skills: List[str]) -> Tuple[str, str, float]:

@@ -3,13 +3,13 @@ import logging
 from pathlib import Path
 from typing import List
 
-from config.settings import MAX_JOBS_PER_PLATFORM, USE_MOCK_DATA
-from scraper.utils import clean_text, get_chrome_driver
+from backend.core.config.settings import MAX_JOBS_PER_PLATFORM, USE_MOCK_DATA
+from backend.core.scraper.utils import clean_text, get_chrome_driver
 
 logger = logging.getLogger(__name__)
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-MOCK_PATH = ROOT_DIR / "data" / "mock_jobs.json"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+MOCK_PATH = ROOT_DIR / "data_store" / "mock_jobs.json"
 
 
 def _load_mock(role: str, limit: int) -> List[dict]:

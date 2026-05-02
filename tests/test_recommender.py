@@ -1,4 +1,4 @@
-from recommender.resource_recommender import get_resources, recommend_all
+from backend.core.recommender.resource_recommender import get_resources, recommend_all
 
 
 def test_get_resources_known():

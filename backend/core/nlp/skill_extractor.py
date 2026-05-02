@@ -11,12 +11,12 @@ except Exception:  # noqa: BLE001
     spacy = None
     PhraseMatcher = None
 
-from config.settings import SPACY_MODEL
-from models import JobPosting
-from nlp.skill_normalizer import normalize_list
+from backend.core.config.settings import SPACY_MODEL
+from backend.app.models import JobPosting
+from backend.core.nlp.skill_normalizer import normalize_list
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-ALIASES_PATH = ROOT_DIR / "data" / "skill_aliases.json"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+ALIASES_PATH = ROOT_DIR / "data_store" / "skill_aliases.json"
 
 _SEED_SKILLS = [
     "Python",

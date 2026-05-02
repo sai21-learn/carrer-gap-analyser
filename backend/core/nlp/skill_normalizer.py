@@ -3,8 +3,8 @@ import re
 from pathlib import Path
 from typing import List
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-ALIASES_PATH = ROOT_DIR / "data" / "skill_aliases.json"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+ALIASES_PATH = ROOT_DIR / "data_store" / "skill_aliases.json"
 
 
 def _load_aliases() -> dict:

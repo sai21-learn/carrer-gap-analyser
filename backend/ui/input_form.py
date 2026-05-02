@@ -1,7 +1,7 @@
 import streamlit as st
 
-from config.settings import ADZUNA_DEFAULT_LOCATION, ROLE_SKILLS, SUPPORTED_ROLES
-from models import JobSearchFilters, StudentProfile
+from backend.core.config.settings import ADZUNA_DEFAULT_LOCATION, ROLE_SKILLS, SUPPORTED_ROLES
+from backend.app.models import JobSearchFilters, StudentProfile
 
 # UI Constants
 SKILLS_COLUMNS = 3

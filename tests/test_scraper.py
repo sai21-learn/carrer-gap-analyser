@@ -1,8 +1,8 @@
 import pytest
 
-from scraper.utils import clean_text
-from scraper.job_scraper import fetch_jobs
-from config.settings import SUPPORTED_ROLES
+from backend.core.scraper.utils import clean_text
+from backend.core.scraper.job_scraper import fetch_jobs
+from backend.core.config.settings import SUPPORTED_ROLES
 
 
 class TestCleanText:
@@ -31,7 +31,7 @@ class TestFetchJobs:
 
     def test_returns_job_postings(self, monkeypatch):
         monkeypatch.setattr("config.settings.USE_MOCK_DATA", True)
-        from models import JobPosting
+        from backend.app.models import JobPosting
         jobs = fetch_jobs("Data Analyst")
         assert len(jobs) > 0
         assert all(isinstance(j, JobPosting) for j in jobs)

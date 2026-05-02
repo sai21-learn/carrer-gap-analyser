@@ -1,8 +1,8 @@
 import pytest
 
-from nlp.skill_extractor import extract_skills, aggregate_skills
-from nlp.skill_normalizer import normalize, normalize_list
-from nlp.semantic_matcher import compute_similarity
+from backend.core.nlp.skill_extractor import extract_skills, aggregate_skills
+from backend.core.nlp.skill_normalizer import normalize, normalize_list
+from backend.core.nlp.semantic_matcher import compute_similarity
 
 
 class TestSkillNormalizer:

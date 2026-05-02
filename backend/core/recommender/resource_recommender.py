@@ -3,11 +3,11 @@ from pathlib import Path
 from typing import Dict, List
 from urllib.parse import quote_plus
 
-from models import Resource
-from nlp.skill_normalizer import normalize
+from backend.app.models import Resource
+from backend.core.nlp.skill_normalizer import normalize
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-RESOURCES_PATH = ROOT_DIR / "data" / "resources_db.json"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+RESOURCES_PATH = ROOT_DIR / "data_store" / "resources_db.json"
 
 
 def _load_resources() -> dict:

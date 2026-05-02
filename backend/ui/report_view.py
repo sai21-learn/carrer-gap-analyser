@@ -1,6 +1,6 @@
 import streamlit as st
 
-from models import GapReport, JobPosting, Resource
+from backend.app.models import GapReport, JobPosting, Resource
 from ui.charts import gap_priority_chart, skill_breakdown_bar, skill_match_gauge
 
 

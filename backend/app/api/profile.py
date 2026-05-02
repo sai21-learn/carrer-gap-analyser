@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from sqlmodel import Session, select
 
 from backend.app.services.resume_parser import extract_text_from_pdf
-from nlp.skill_extractor import extract_skills
+from backend.core.nlp.skill_extractor import extract_skills
 
 from ..auth import get_current_user
 from ..db import get_session

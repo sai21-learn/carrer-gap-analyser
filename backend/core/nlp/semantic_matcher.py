@@ -6,7 +6,7 @@ try:
 except Exception:  # noqa: BLE001
     spacy = None
 
-from config.settings import (
+from backend.core.config.settings import (
     ENABLE_BERT,
     PARTIAL_MATCH_MIN_SCORE,
     SIMILARITY_THRESHOLD,

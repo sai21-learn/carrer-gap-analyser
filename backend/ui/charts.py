@@ -1,6 +1,6 @@
 import plotly.graph_objects as go
 
-from models import GapReport
+from backend.app.models import GapReport
 
 
 def skill_match_gauge(score: float) -> go.Figure:

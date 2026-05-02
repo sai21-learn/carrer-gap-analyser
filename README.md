@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-# CareerCompass AI (Phase 3: Data Ingestion)
-
-## Overview
-This branch adds automated data ingestion capabilities to CareerCompass AI, specifically focusing on Resume Parsing.
-
-## Key Accomplishments
-- **PDF Extraction**: Integrated `PyMuPDF` to extract text from user-uploaded resumes.
-- **NLP Processing**: Linked extracted text to our spaCy-based skill extraction engine.
-- **Persistence**: Extracted skills are now automatically saved to the user's persistent profile in PostgreSQL.
-- **Upload UI**: Added a user-friendly drag-and-drop resume upload component to the dashboard.
-
-## Setup
-Refer to individual `backend/` and `frontend/` directories for setup instructions.
-=======
 # CareerCompass AI
 
 ## Overview
@@ -31,12 +16,12 @@ CareerCompass AI is a full-stack platform that helps users identify, track, and 
 - **Dashboard UI**: Comprehensive overview of skills, match scores, and progress.
 
 ### ✅ Phase 3: Automated Data Ingestion
-- **Resume Parsing**: Upload PDF resumes to automatically extract skills.
-- **NLP Integration**: Seamlessly connects extraction logic to user profiles.
+- **Resume Parsing**: Upload PDF resumes to automatically extract skills using `PyMuPDF`.
+- **NLP Integration**: Seamlessly connects extraction logic to user profiles via spaCy.
 
 ### ✅ Phase 4: High-Performance Async Engine
 - **Redis & Celery**: Heavy scraping and analysis tasks are offloaded to background workers.
-- **Real-time Status**: Frontend polling keeps users informed of progress.
+- **Real-time Status**: Frontend polling keeps users informed of task progress.
 
 ### ✅ Phase 5: Intelligence & Roadmaps
 - **Roadmap.sh Integration**: Maps skill gaps to industry-standard learning paths.
@@ -82,4 +67,3 @@ pytest tests/
 
 ## License
 MIT
->>>>>>> feat/intelligence-roadmap

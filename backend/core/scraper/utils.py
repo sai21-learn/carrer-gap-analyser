@@ -7,9 +7,9 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup
 
-from config.settings import REQUEST_DELAY_SECONDS, SCRAPE_TIMEOUT_SECONDS
+from backend.core.config.settings import REQUEST_DELAY_SECONDS, SCRAPE_TIMEOUT_SECONDS
 
-LOG_PATH = Path(__file__).resolve().parents[1] / "logs" / "app.log"
+LOG_PATH = Path(__file__).resolve().parents[2] / "logs" / "app.log"
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
