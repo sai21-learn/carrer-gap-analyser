@@ -8,8 +8,8 @@
     - [x] Step 1: Write failing test for RoadmapService
     - [x] Step 2: Run test to verify it fails
     - [x] Step 3: Implement RoadmapService
-    - [ ] Step 4: Run test to verify it passes
-    - [ ] Step 5: Commit and push
+    - [x] Step 4: Run test to verify it passes
+    - [x] Step 5: Commit and push
 - [x] **Task 3: API Endpoint for Personalized Roadmap**
     - [x] Step 1: Add Roadmap models to models.py
     - [x] Step 2: Implement the roadmap endpoint in analysis.py
@@ -18,4 +18,4 @@
     - [x] Step 1: Install react-flow
     - [x] Step 2: Create RoadmapVisualizer component
     - [x] Step 3: Create Roadmap page
-    - [ ] Step 4: Commit and push
+    - [x] Step 4: Commit and push
