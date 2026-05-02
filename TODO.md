@@ -1,0 +1,21 @@
+# Phase 5: Intelligence & Roadmaps TODO
+
+- [x] **Task 1: Roadmap Synchronization Script**
+    - [x] Step 1: Create the sync script
+    - [x] Step 2: Run the sync script
+    - [x] Step 3: Commit and push
+- [ ] **Task 2: Roadmap Mapping Service**
+    - [x] Step 1: Write failing test for RoadmapService
+    - [x] Step 2: Run test to verify it fails
+    - [x] Step 3: Implement RoadmapService
+    - [ ] Step 4: Run test to verify it passes
+    - [ ] Step 5: Commit and push
+- [ ] **Task 3: API Endpoint for Personalized Roadmap**
+    - [x] Step 1: Add Roadmap models to models.py
+    - [x] Step 2: Implement the roadmap endpoint in analysis.py
+    - [x] Step 3: Commit and push
+- [ ] **Task 4: Frontend Visualization with React Flow**
+    - [x] Step 1: Install react-flow
+    - [x] Step 2: Create RoadmapVisualizer component
+    - [x] Step 3: Create Roadmap page
+    - [ ] Step 4: Commit and push

@@ -1,5 +1,6 @@
+import json
 from fastapi import APIRouter, Depends, HTTPException
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 from .. import models
 from ..auth import get_current_user
@@ -19,12 +20,16 @@ def start_analysis(
     """
     Starts a new gap analysis task for the authenticated user.
     """
-    profile = session.get(models.StudentProfile, current_user.profile_id)
+    profile = session.exec(
+        select(models.Profile).where(models.Profile.user_id == current_user.id)
+    ).first()
     if not profile:
         raise HTTPException(status_code=404, detail="User profile not found.")
 
+    user_skills = json.loads(profile.current_skills) if profile.current_skills else []
+
     task = run_gap_analysis_task.delay(
-        target_role=analysis_request.target_role, user_skills=profile.skills
+        target_role=analysis_request.target_role, user_skills=user_skills
     )
 
     return {"task_id": task.id}
