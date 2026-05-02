@@ -2,6 +2,8 @@ import os
 import json
 from typing import List, Dict
 
+from backend.core.recommender.resource_recommender import get_resources
+
 class RoadmapService:
     def __init__(self):
         self.data_dir = "backend/app/data/roadmaps"
@@ -32,7 +34,9 @@ class RoadmapService:
             label = node.get("data", {}).get("label", "").lower()
             if label in normalized_gaps:
                 node["status"] = "gap"
+                node["resources"] = get_resources(label)
             else:
                 node["status"] = "completed"
+                node["resources"] = []
                 
         return {"nodes": nodes, "edges": edges}

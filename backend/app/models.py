@@ -95,6 +95,7 @@ class RoadmapNode(SQLModel):
     position: Dict[str, float]
     type: str = "default"
     status: str = "completed"
+    resources: List[Resource] = []
 
 
 class RoadmapEdge(SQLModel):
