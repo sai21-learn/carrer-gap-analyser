@@ -144,3 +144,4 @@ UI_SPEC.md
 node_modules/
 .omg/
 .next/
+.worktrees/

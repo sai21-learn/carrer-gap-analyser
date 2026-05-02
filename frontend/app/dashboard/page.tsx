@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import ResumeUpload from "@/components/dashboard/ResumeUpload";
+import AnalysisRunner from "@/components/dashboard/AnalysisRunner";
 
 interface ProfileData {
   user_email: string;
@@ -115,8 +116,9 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 space-y-6">
           <ResumeUpload onUploadSuccess={fetchProfile} />
+          <AnalysisRunner />
         </div>
         <div className="lg:col-span-2 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-950">
           <div className="p-6">
