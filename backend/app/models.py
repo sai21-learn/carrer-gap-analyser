@@ -108,3 +108,11 @@ class RoadmapResponse(SQLModel):
     nodes: List[RoadmapNode]
     edges: List[RoadmapEdge]
     content: Dict[str, str] = {}
+
+
+class Feedback(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    user_id: int = Field(foreign_key="user.id")
+    resource_url: str
+    rating: int  # 1 for up, -1 for down
+    created_at: datetime = Field(default_factory=datetime.now)
