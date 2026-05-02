@@ -10,7 +10,7 @@
     - [x] Step 3: Implement RoadmapService
     - [ ] Step 4: Run test to verify it passes
     - [ ] Step 5: Commit and push
-- [ ] **Task 3: API Endpoint for Personalized Roadmap**
+- [x] **Task 3: API Endpoint for Personalized Roadmap**
     - [x] Step 1: Add Roadmap models to models.py
     - [x] Step 2: Implement the roadmap endpoint in analysis.py
     - [x] Step 3: Commit and push
