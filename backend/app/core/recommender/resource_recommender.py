@@ -3,11 +3,11 @@ from pathlib import Path
 from typing import Dict, List
 from urllib.parse import quote_plus
 
+from app.core.config.settings import DATA_STORE_DIR
 from app.schemas import Resource
 from app.core.nlp.skill_normalizer import normalize
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
-RESOURCES_PATH = ROOT_DIR / "data_store" / "resources_db.json"
+RESOURCES_PATH = DATA_STORE_DIR / "resources_db.json"
 
 
 def _load_resources() -> dict:
@@ -18,7 +18,12 @@ def _load_resources() -> dict:
 def get_resources(skill: str) -> List[Resource]:
     normalized = normalize(skill)
     data = _load_resources()
-    resources = data.get(normalized)
+    resources = None
+    for key, value in data.items():
+        if key.lower() == normalized.lower():
+            resources = value
+            break
+            
     if not resources:
         url = f"https://www.google.com/search?q={quote_plus('learn ' + normalized)}"
         return [Resource(title=f"Learn {normalized}", url=url, platform="Google", type="search")]

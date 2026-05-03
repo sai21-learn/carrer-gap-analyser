@@ -1,8 +1,13 @@
+from pathlib import Path
 from typing import Dict, List, Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    # --- Paths ---
+    BASE_DIR: Path = Path(__file__).resolve().parents[3]
+    DATA_STORE_DIR: Path = BASE_DIR / "data_store"
+
     # --- Project Metadata ---
     PROJECT_NAME: str = "CareerCompass AI"
     API_V1_STR: str = "/api/v1"
@@ -11,7 +16,7 @@ class Settings(BaseSettings):
     USE_MOCK_DATA: bool = True
     ENABLE_BERT: bool = False
 
-    # --- Database & Auth ---
+    # For MariaDB, use mysql+pymysql://user:password@host:port/db
     DATABASE_URL: str = "sqlite:///./career_gap.db"
     CLERK_JWKS_URL: str = "https://meet-narwhal-62.clerk.accounts.dev/.well-known/jwks.json"
     CLERK_SECRET_KEY: Optional[str] = None
@@ -106,7 +111,7 @@ class Settings(BaseSettings):
     SCRAPE_PLATFORMS: List[str] = ["adzuna"]
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=str(Path(__file__).resolve().parents[3] / ".env"),
         env_file_encoding="utf-8",
         case_sensitive=True,
         extra="ignore"
@@ -125,6 +130,14 @@ ADZUNA_APP_ID = settings.ADZUNA_APP_ID
 ADZUNA_APP_KEY = settings.ADZUNA_APP_KEY
 ADZUNA_COUNTRY = settings.ADZUNA_COUNTRY
 ADZUNA_DEFAULT_LOCATION = settings.ADZUNA_DEFAULT_LOCATION
+ADZUNA_SORT_BY = settings.ADZUNA_SORT_BY
+ADZUNA_WHAT_EXCLUDE = settings.ADZUNA_WHAT_EXCLUDE
+ADZUNA_SALARY_MIN = settings.ADZUNA_SALARY_MIN
+ADZUNA_SALARY_MAX = settings.ADZUNA_SALARY_MAX
+ADZUNA_FULL_TIME = settings.ADZUNA_FULL_TIME
+ADZUNA_PART_TIME = settings.ADZUNA_PART_TIME
+ADZUNA_PERMANENT = settings.ADZUNA_PERMANENT
+ADZUNA_CONTRACT = settings.ADZUNA_CONTRACT
 SPACY_MODEL = settings.SPACY_MODEL
 SIMILARITY_THRESHOLD = settings.SIMILARITY_THRESHOLD
 PARTIAL_MATCH_MIN_SCORE = settings.PARTIAL_MATCH_MIN_SCORE
@@ -132,3 +145,4 @@ PARTIAL_MATCH_MAX_SCORE = settings.PARTIAL_MATCH_MAX_SCORE
 SUPPORTED_ROLES = settings.SUPPORTED_ROLES
 ROLE_SKILLS = settings.ROLE_SKILLS
 SCRAPE_PLATFORMS = settings.SCRAPE_PLATFORMS
+DATA_STORE_DIR = settings.DATA_STORE_DIR

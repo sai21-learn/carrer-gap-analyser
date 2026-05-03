@@ -42,4 +42,18 @@ def health_check():
 def on_startup():
     logger.info("Initializing database...")
     init_db()
+    
+    logger.info("Checking NLP models...")
+    try:
+        import spacy
+        try:
+            spacy.load("en_core_web_md")
+        except OSError:
+            logger.warning("spaCy model 'en_core_web_md' not found. Downloading now (this may take a minute)...")
+            import subprocess
+            import sys
+            subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_md"], check=True)
+    except ImportError:
+        logger.error("spaCy is not installed! Please run: pip install spacy")
+        
     logger.info("Application startup complete.")

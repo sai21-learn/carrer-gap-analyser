@@ -1,82 +1,402 @@
 [
   {
     "title": "Data Analyst",
+    "company": "SkyCloud",
+    "location": "Remote",
+    "description": "We are looking for a Data Analyst to join our fast-paced team. The ideal candidate will have strong experience with Machine Learning, Statistics, Data Cleaning, Excel, R, NumPy, SQL, Python, ETL, Power BI. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/data-analyst/0"
+  },
+  {
+    "title": "Data Analyst",
+    "company": "TechCorp",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Data Analyst to join our fast-paced team. The ideal candidate will have strong experience with Data Visualization, Jupyter, R, Power BI, Python, Machine Learning, Data Cleaning, Tableau, Excel. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/data-analyst/1"
+  },
+  {
+    "title": "Data Analyst",
+    "company": "CloudOps Solutions",
+    "location": "Remote",
+    "description": "We are looking for a Data Analyst to join our fast-paced team. The ideal candidate will have strong experience with Statistics, SQL, Python, NumPy, Excel, Jupyter, ETL, Tableau. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/data-analyst/2"
+  },
+  {
+    "title": "Data Analyst",
     "company": "TechCorp",
     "location": "Bangalore, India",
-    "description": "Data Analyst with Python, SQL, Pandas, NumPy, Tableau, and Excel. Power BI and statistics are a plus.",
+    "description": "We are looking for a Data Analyst to join our fast-paced team. The ideal candidate will have strong experience with Power BI, Jupyter, Python, SQL, Data Visualization, NumPy, Excel, Tableau, Pandas. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/data-analyst/3"
   },
   {
     "title": "Data Analyst",
-    "company": "InfoSystems",
-    "location": "Hyderabad, India",
-    "description": "Seeking Data Analyst with strong SQL, Python, Excel, and Tableau skills. Experience with Power BI preferred.",
-    "platform": "mock",
-    "url": null
-  },
-  {
-    "title": "Data Analyst",
-    "company": "DataCo",
-    "location": "Chennai, India",
-    "description": "Data Analyst role focused on SQL, Python, Pandas, and data visualization. Machine learning exposure is helpful.",
-    "platform": "mock",
-    "url": null
-  },
-  {
-    "title": "Data Analyst",
-    "company": "InsightWorks",
+    "company": "VisionNext",
     "location": "Pune, India",
-    "description": "Looking for Excel, SQL, Python, and Tableau expertise. Knowledge of statistics and dashboards required.",
+    "description": "We are looking for a Data Analyst to join our fast-paced team. The ideal candidate will have strong experience with NumPy, Data Visualization, Power BI, SQL, Tableau, Statistics, Machine Learning, Excel, Data Cleaning. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/data-analyst/4"
   },
   {
-    "title": "Software Engineer",
-    "company": "StartupXYZ",
+    "title": "Data Scientist",
+    "company": "SkyCloud",
     "location": "Mumbai, India",
-    "description": "Software Engineer with Java or Python, REST APIs, Docker, Kubernetes, Git, and SQL. React experience is a plus.",
+    "description": "We are looking for a Data Scientist to join our fast-paced team. The ideal candidate will have strong experience with NumPy, SQL, Pandas, PyTorch, Scikit-learn, AWS, Python, Deep Learning, TensorFlow, Jupyter. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/data-scientist/0"
   },
   {
-    "title": "Software Engineer",
-    "company": "CloudNine",
-    "location": "Remote",
-    "description": "Build backend services with Python, FastAPI, PostgreSQL, Docker, and AWS. CI/CD and Git required.",
-    "platform": "mock",
-    "url": null
-  },
-  {
-    "title": "Software Engineer",
-    "company": "ProductLabs",
+    "title": "Data Scientist",
+    "company": "AI Research Group",
     "location": "Bangalore, India",
-    "description": "Full-stack role using JavaScript, Node.js, React, REST APIs, and SQL. Testing with pytest preferred.",
+    "description": "We are looking for a Data Scientist to join our fast-paced team. The ideal candidate will have strong experience with NumPy, TensorFlow, Python, Git, R, Scikit-learn, Deep Learning, Statistics, SQL. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/data-scientist/1"
   },
   {
-    "title": "Machine Learning Engineer",
-    "company": "AI Labs",
-    "location": "Remote",
-    "description": "ML Engineer with Python, TensorFlow, PyTorch, scikit-learn, NLP, and Docker. AWS or GCP experience required.",
+    "title": "Data Scientist",
+    "company": "ServerScale",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Data Scientist to join our fast-paced team. The ideal candidate will have strong experience with Deep Learning, Git, PyTorch, Machine Learning, SQL, NumPy, TensorFlow, Jupyter, Statistics, R. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/data-scientist/2"
+  },
+  {
+    "title": "Data Scientist",
+    "company": "AI Research Group",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Data Scientist to join our fast-paced team. The ideal candidate will have strong experience with AWS, Deep Learning, Statistics, Data Visualization, Machine Learning, TensorFlow, SQL, Scikit-learn, PyTorch, NumPy. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/data-scientist/3"
+  },
+  {
+    "title": "Data Scientist",
+    "company": "SkyCloud",
+    "location": "Pune, India",
+    "description": "We are looking for a Data Scientist to join our fast-paced team. The ideal candidate will have strong experience with PyTorch, TensorFlow, Git, Jupyter, Data Visualization, AWS, SQL, Python, Scikit-learn. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/data-scientist/4"
   },
   {
     "title": "Machine Learning Engineer",
     "company": "VisionNext",
-    "location": "Bangalore, India",
-    "description": "Computer vision role requiring Python, OpenCV, Deep Learning, and PyTorch. Kubernetes and Git are a plus.",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Machine Learning Engineer to join our fast-paced team. The ideal candidate will have strong experience with Azure, Deep Learning, Python, Docker, Machine Learning, TensorFlow, GCP, CI/CD, Model Deployment, AWS. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/ml-engineer/0"
   },
   {
     "title": "Machine Learning Engineer",
-    "company": "DataMind",
-    "location": "Hyderabad, India",
-    "description": "Experience with ML pipelines, Python, SQL, TensorFlow, and MLOps. Familiarity with Docker and CI/CD expected.",
+    "company": "SkyCloud",
+    "location": "Bangalore, India",
+    "description": "We are looking for a Machine Learning Engineer to join our fast-paced team. The ideal candidate will have strong experience with Machine Learning, PyTorch, Model Deployment, Kubernetes, Deep Learning, Azure, Git, AWS, GCP, CI/CD. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
-    "url": null
+    "url": "https://mockjob.com/ml-engineer/1"
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "SkyCloud",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Machine Learning Engineer to join our fast-paced team. The ideal candidate will have strong experience with Docker, PyTorch, Kubernetes, MLOps, AWS, Machine Learning, Deep Learning, Git, Python, GCP. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/ml-engineer/2"
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "StartupXYZ",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Machine Learning Engineer to join our fast-paced team. The ideal candidate will have strong experience with Machine Learning, Git, Scikit-learn, Docker, MLOps, Azure, PyTorch, TensorFlow, AWS. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/ml-engineer/3"
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "PixelPerfect UI",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Machine Learning Engineer to join our fast-paced team. The ideal candidate will have strong experience with PyTorch, MLOps, Scikit-learn, Kubernetes, Azure, Deep Learning, Docker, TensorFlow, Machine Learning, Python, Git. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/ml-engineer/4"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "VisionNext",
+    "location": "Bangalore, India",
+    "description": "We are looking for a Software Engineer to join our fast-paced team. The ideal candidate will have strong experience with Linux, Agile, Testing, Python, Design Patterns, JavaScript, C++, REST APIs, Docker. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/software-engineer/0"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "SecureNet",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Software Engineer to join our fast-paced team. The ideal candidate will have strong experience with Python, Git, Linux, Design Patterns, Agile, Testing, Docker, Microservices. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/software-engineer/1"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AI Research Group",
+    "location": "Remote",
+    "description": "We are looking for a Software Engineer to join our fast-paced team. The ideal candidate will have strong experience with Microservices, AWS, Design Patterns, C++, Agile, JavaScript, Git, Java, REST APIs. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/software-engineer/2"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AI Research Group",
+    "location": "Pune, India",
+    "description": "We are looking for a Software Engineer to join our fast-paced team. The ideal candidate will have strong experience with Design Patterns, SQL, C++, Git, REST APIs, Agile, Testing, Python, Microservices, Java. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/software-engineer/3"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "SecureNet",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Software Engineer to join our fast-paced team. The ideal candidate will have strong experience with Java, REST APIs, SQL, C++, Testing, AWS, Linux, Python, JavaScript. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/software-engineer/4"
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "SkyCloud",
+    "location": "Bangalore, India",
+    "description": "We are looking for a Frontend Developer to join our fast-paced team. The ideal candidate will have strong experience with Vue.js, Angular, TypeScript, HTML, Git, Sass, Node.js, Figma, React. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/frontend/0"
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "PixelPerfect UI",
+    "location": "Chennai, India",
+    "description": "We are looking for a Frontend Developer to join our fast-paced team. The ideal candidate will have strong experience with Vue.js, Sass, React, JavaScript, TypeScript, Figma, Responsive Design, CSS. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/frontend/1"
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "ServerScale",
+    "location": "Bangalore, India",
+    "description": "We are looking for a Frontend Developer to join our fast-paced team. The ideal candidate will have strong experience with TypeScript, React, Git, Responsive Design, Angular, Sass, Vue.js, JavaScript, HTML. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/frontend/2"
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "VisionNext",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Frontend Developer to join our fast-paced team. The ideal candidate will have strong experience with Responsive Design, React, Testing, Sass, Figma, JavaScript, Node.js, CSS, Vue.js, Angular. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/frontend/3"
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "PixelPerfect UI",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Frontend Developer to join our fast-paced team. The ideal candidate will have strong experience with Angular, Node.js, Git, JavaScript, React, HTML, Testing, Figma, Sass, TypeScript. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/frontend/4"
+  },
+  {
+    "title": "Backend Developer",
+    "company": "ServerScale",
+    "location": "Chennai, India",
+    "description": "We are looking for a Backend Developer to join our fast-paced team. The ideal candidate will have strong experience with Kubernetes, Testing, SQL, MongoDB, Node.js, Python, Docker, Redis, REST APIs. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/backend/0"
+  },
+  {
+    "title": "Backend Developer",
+    "company": "ServerScale",
+    "location": "Bangalore, India",
+    "description": "We are looking for a Backend Developer to join our fast-paced team. The ideal candidate will have strong experience with Microservices, Node.js, REST APIs, Git, Kubernetes, MongoDB, Java, Testing, SQL. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/backend/1"
+  },
+  {
+    "title": "Backend Developer",
+    "company": "Creative Minds",
+    "location": "Remote",
+    "description": "We are looking for a Backend Developer to join our fast-paced team. The ideal candidate will have strong experience with Testing, REST APIs, Java, Microservices, Node.js, Redis, Kubernetes, Docker, MongoDB, Git. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/backend/2"
+  },
+  {
+    "title": "Backend Developer",
+    "company": "CloudOps Solutions",
+    "location": "Pune, India",
+    "description": "We are looking for a Backend Developer to join our fast-paced team. The ideal candidate will have strong experience with REST APIs, AWS, Python, Node.js, Testing, Redis, Docker, SQL, Microservices, Git, Kubernetes. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/backend/3"
+  },
+  {
+    "title": "Backend Developer",
+    "company": "CloudOps Solutions",
+    "location": "Chennai, India",
+    "description": "We are looking for a Backend Developer to join our fast-paced team. The ideal candidate will have strong experience with Git, Kubernetes, SQL, MongoDB, Docker, Python, Node.js, AWS, GraphQL, Java. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/backend/4"
+  },
+  {
+    "title": "DevOps Engineer",
+    "company": "VisionNext",
+    "location": "Remote",
+    "description": "We are looking for a DevOps Engineer to join our fast-paced team. The ideal candidate will have strong experience with Jenkins, CI/CD, AWS, Docker, Prometheus, Monitoring, Infrastructure as Code, Git, Linux, Grafana. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/devops/0"
+  },
+  {
+    "title": "DevOps Engineer",
+    "company": "StartupXYZ",
+    "location": "Pune, India",
+    "description": "We are looking for a DevOps Engineer to join our fast-paced team. The ideal candidate will have strong experience with AWS, CI/CD, Linux, Monitoring, Python, Grafana, Infrastructure as Code, Git, Kubernetes, Docker. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/devops/1"
+  },
+  {
+    "title": "DevOps Engineer",
+    "company": "TechCorp",
+    "location": "Bangalore, India",
+    "description": "We are looking for a DevOps Engineer to join our fast-paced team. The ideal candidate will have strong experience with Linux, Terraform, Git, AWS, Python, Prometheus, Docker, Jenkins. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/devops/2"
+  },
+  {
+    "title": "DevOps Engineer",
+    "company": "VisionNext",
+    "location": "Bangalore, India",
+    "description": "We are looking for a DevOps Engineer to join our fast-paced team. The ideal candidate will have strong experience with CI/CD, Kubernetes, Jenkins, Terraform, Git, Ansible, Prometheus, Infrastructure as Code, AWS, Python. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/devops/3"
+  },
+  {
+    "title": "DevOps Engineer",
+    "company": "CloudOps Solutions",
+    "location": "Bangalore, India",
+    "description": "We are looking for a DevOps Engineer to join our fast-paced team. The ideal candidate will have strong experience with Linux, Infrastructure as Code, Terraform, Grafana, Monitoring, Prometheus, AWS, Kubernetes. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/devops/4"
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "Creative Minds",
+    "location": "Chennai, India",
+    "description": "We are looking for a UI/UX Designer to join our fast-paced team. The ideal candidate will have strong experience with InVision, CSS, User Research, Sketch, Usability Testing, Wireframing, Design Systems. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/uiux/0"
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "TechCorp",
+    "location": "Remote",
+    "description": "We are looking for a UI/UX Designer to join our fast-paced team. The ideal candidate will have strong experience with CSS, HTML, Wireframing, Prototyping, JavaScript, User Research, Figma. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/uiux/1"
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "VisionNext",
+    "location": "Bangalore, India",
+    "description": "We are looking for a UI/UX Designer to join our fast-paced team. The ideal candidate will have strong experience with Wireframing, HTML, Adobe XD, CSS, Sketch, Figma, InVision, Prototyping. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/uiux/2"
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "CloudOps Solutions",
+    "location": "Chennai, India",
+    "description": "We are looking for a UI/UX Designer to join our fast-paced team. The ideal candidate will have strong experience with Sketch, Adobe XD, User Research, InVision, Wireframing, JavaScript, HTML, Prototyping. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/uiux/3"
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "PixelPerfect UI",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a UI/UX Designer to join our fast-paced team. The ideal candidate will have strong experience with Design Systems, CSS, Wireframing, Adobe XD, Usability Testing, Prototyping, Figma. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/uiux/4"
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "company": "ServerScale",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Cybersecurity Analyst to join our fast-paced team. The ideal candidate will have strong experience with Python, SIEM, Cryptography, Compliance, Kali Linux, Risk Assessment, Incident Response. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cybersecurity/0"
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "company": "VisionNext",
+    "location": "Chennai, India",
+    "description": "We are looking for a Cybersecurity Analyst to join our fast-paced team. The ideal candidate will have strong experience with SIEM, Risk Assessment, Cryptography, Firewalls, Incident Response, Linux, Penetration Testing. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cybersecurity/1"
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "company": "StartupXYZ",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Cybersecurity Analyst to join our fast-paced team. The ideal candidate will have strong experience with Compliance, Ethical Hacking, Kali Linux, Risk Assessment, Network Security, SIEM, Python. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cybersecurity/2"
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "company": "SecureNet",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Cybersecurity Analyst to join our fast-paced team. The ideal candidate will have strong experience with Python, Compliance, Kali Linux, Cryptography, Penetration Testing, SIEM, Incident Response. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cybersecurity/3"
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "company": "AI Research Group",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Cybersecurity Analyst to join our fast-paced team. The ideal candidate will have strong experience with Ethical Hacking, Compliance, Kali Linux, Firewalls, Incident Response, Linux, Network Security, SIEM, Risk Assessment. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cybersecurity/4"
+  },
+  {
+    "title": "Cloud Engineer",
+    "company": "SkyCloud",
+    "location": "Mumbai, India",
+    "description": "We are looking for a Cloud Engineer to join our fast-paced team. The ideal candidate will have strong experience with Azure, Python, Monitoring, Terraform, Kubernetes, Docker, Networking, Linux, GCP. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cloud-engineer/0"
+  },
+  {
+    "title": "Cloud Engineer",
+    "company": "AI Research Group",
+    "location": "Pune, India",
+    "description": "We are looking for a Cloud Engineer to join our fast-paced team. The ideal candidate will have strong experience with Linux, Kubernetes, Monitoring, Python, Terraform, Docker, Serverless, GCP. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cloud-engineer/1"
+  },
+  {
+    "title": "Cloud Engineer",
+    "company": "VisionNext",
+    "location": "Remote",
+    "description": "We are looking for a Cloud Engineer to join our fast-paced team. The ideal candidate will have strong experience with Serverless, Linux, Python, Docker, Networking, Azure, Infrastructure as Code, CI/CD. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cloud-engineer/2"
+  },
+  {
+    "title": "Cloud Engineer",
+    "company": "CloudOps Solutions",
+    "location": "Pune, India",
+    "description": "We are looking for a Cloud Engineer to join our fast-paced team. The ideal candidate will have strong experience with Python, Monitoring, Networking, Infrastructure as Code, Serverless, Kubernetes, CI/CD. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cloud-engineer/3"
+  },
+  {
+    "title": "Cloud Engineer",
+    "company": "Creative Minds",
+    "location": "Bangalore, India",
+    "description": "We are looking for a Cloud Engineer to join our fast-paced team. The ideal candidate will have strong experience with Kubernetes, Linux, Monitoring, Python, AWS, Networking, Azure, Serverless, CI/CD. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
+    "platform": "mock",
+    "url": "https://mockjob.com/cloud-engineer/4"
   }
 ]

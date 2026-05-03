@@ -25,3 +25,14 @@ class Feedback(SQLModel, table=True):
     resource_url: str
     rating: int  # 1 for up, -1 for down
     created_at: datetime = Field(default_factory=datetime.now)
+
+
+from sqlalchemy import Column, Text
+
+class Analysis(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    user_id: int = Field(foreign_key="user.id")
+    target_role: str
+    status: str = Field(default="PENDING")
+    result: Optional[str] = Field(default="{}", sa_column=Column(Text))  # Stored as JSON string
+    created_at: datetime = Field(default_factory=datetime.now)

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Play, Loader2, Terminal, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export default function AnalysisRunner() {
@@ -10,6 +11,8 @@ export default function AnalysisRunner() {
   const [result, setResult] = useState<any | null>(null);
   const [progress, setProgress] = useState(0);
   const [targetRole, setTargetRole] = useState<string | null>(null);
+  const [analysisId, setAnalysisId] = useState<number | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch target role from profile
@@ -43,6 +46,7 @@ export default function AnalysisRunner() {
       if (response.ok) {
         const data = await response.json();
         setTaskId(data.task_id);
+        setAnalysisId(data.analysis_id);
       } else {
         setStatus("ERROR");
         setResult({ error: "COMMUNICATION_LINK_FAILURE" });
@@ -63,13 +67,28 @@ export default function AnalysisRunner() {
           const data = await response.json();
           setStatus(data.state);
           if (data.state === "SUCCESS") {
-            setResult(data.result);
+            setResult(data.result || data);
+            setStatus("SUCCESS");
+            setProgress(100);
             setTaskId(null);
             clearInterval(interval);
+            // Navigate after a short delay
+            setTimeout(() => {
+              if (analysisId) {
+                router.push(`/dashboard/analysis/${analysisId}`);
+              } else {
+                router.push(`/dashboard/analysis`);
+              }
+            }, 1500);
           } else if (data.state === "FAILURE") {
             setResult({ error: "ANALYSIS_ABORTED_BY_SYSTEM" });
+            setStatus("FAILURE");
             setTaskId(null);
             clearInterval(interval);
+          } else if (data.meta) {
+            // Update progress and status based on backend metadata
+            if (data.meta.progress) setProgress(data.meta.progress);
+            if (data.meta.stage) setStatus(data.meta.stage);
           }
         }
       } catch (e) {
@@ -80,16 +99,7 @@ export default function AnalysisRunner() {
     return () => clearInterval(interval);
   }, [taskId]);
 
-  useEffect(() => {
-    if (status === "PENDING" || status === "STARTING" || status === "INITIALIZING") {
-      const timer = setTimeout(() => {
-        setProgress((prev) => (prev >= 95 ? 95 : prev + 5));
-      }, 5000);
-      return () => clearTimeout(timer);
-    } else if (status === "SUCCESS") {
-      setProgress(100);
-    }
-  }, [status, progress]);
+  // Removed automatic increment as we now have real backend progress reporting
 
   return (
     <div className="card-minimal">
@@ -165,10 +175,17 @@ export default function AnalysisRunner() {
                       <CheckCircle2 className="h-3 w-3" />
                       <p className="uppercase">SCAN_COMPLETE</p>
                    </div>
-                   <div className="text-white/40 whitespace-pre-wrap">
-                      {JSON.stringify(result, null, 2).split('\n').slice(0, 8).join('\n')}
-                      {"\n"}... [SYSTEM_TRUNCATED]
+                   <div className="text-white/40 space-y-2">
+                      <p>MATCH_SCORE: {result.match_percentage || (result.result?.match_percentage) || 0}%</p>
+                      <p>GAPS_DETECTED: {result.gaps?.length || result.result?.gaps?.length || 0}</p>
+                      <p>MATCHED_SKILLS: {result.matched?.length || result.result?.matched?.length || 0}</p>
                    </div>
+                   <button 
+                     onClick={() => router.push(analysisId ? `/dashboard/analysis/${analysisId}` : `/dashboard/analysis`)}
+                     className="mt-4 text-emerald-500/80 hover:text-emerald-400 text-[10px] uppercase tracking-widest border border-emerald-500/30 px-3 py-1.5 transition-colors"
+                   >
+                     VIEW_FULL_REPORT →
+                   </button>
                 </div>
               )}
             </div>

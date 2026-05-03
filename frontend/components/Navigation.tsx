@@ -13,8 +13,8 @@ const navItems = [
 
 const authItems = [
   { name: "DASHBOARD", href: "/dashboard" },
-  { name: "PROFILE", href: "/profile" },
-  { name: "SETTINGS", href: "/settings" },
+  { name: "PROFILE", href: "/dashboard/profile" },
+  { name: "SETTINGS", href: "/dashboard/settings" },
 ]
 
 export default function Navigation() {

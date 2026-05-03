@@ -18,7 +18,14 @@ class RoadmapService:
         self.role_map = {
             "Frontend Developer": "frontend",
             "Backend Developer": "backend",
-            "DevOps Engineer": "devops"
+            "DevOps Engineer": "devops",
+            "Data Analyst": "data-analyst",
+            "Data Scientist": "data-scientist",
+            "Machine Learning Engineer": "ml-engineer",
+            "Software Engineer": "software-engineer",
+            "UI/UX Designer": "uiux",
+            "Cybersecurity Analyst": "cybersecurity",
+            "Cloud Engineer": "cloud-engineer",
         }
 
     def get_roadmap_for_gaps(self, role: str, gap_skills: List[str]) -> Dict:
@@ -46,11 +53,27 @@ class RoadmapService:
         
         for node in nodes:
             label = node.get("data", {}).get("label", "").lower()
-            if any(gap in label or label in gap for gap in normalized_gaps):
+            label_words = set(label.split())
+            
+            is_gap = False
+            for gap in normalized_gaps:
+                if gap in label:
+                    is_gap = True
+                    break
+                gap_words = set(gap.split())
+                if label_words & gap_words:
+                    is_gap = True
+                    break
+                    
+            if is_gap:
                 node["status"] = "gap"
-                node["resources"] = get_resources(label)
+                if "data" not in node:
+                    node["data"] = {}
+                node["data"]["resources"] = [r.model_dump() if hasattr(r, 'model_dump') else r for r in get_resources(label)]
             else:
                 node["status"] = "completed"
-                node["resources"] = []
+                if "data" not in node:
+                    node["data"] = {}
+                node["data"]["resources"] = []
                 
         return {"nodes": nodes, "edges": edges}

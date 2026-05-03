@@ -1,6 +1,6 @@
 from sqlmodel import Session, SQLModel, create_engine
 from .core.config.settings import settings
-from .models import Profile, User, Feedback
+from .models import Profile, User, Feedback, Analysis
 
 engine = create_engine(
     settings.DATABASE_URL, 

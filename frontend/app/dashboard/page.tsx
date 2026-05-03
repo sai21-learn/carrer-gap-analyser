@@ -15,11 +15,13 @@ import {
 import { useUser } from "@clerk/nextjs";
 import ResumeUpload from "@/components/dashboard/ResumeUpload";
 import AnalysisRunner from "@/components/dashboard/AnalysisRunner";
+import Onboarding from "@/components/dashboard/Onboarding";
 
 interface ProfileData {
   id: number;
   full_name: string;
   email: string;
+  analysis_count: number;
   profile: {
     target_role: string;
     skills: string[];
@@ -30,6 +32,7 @@ export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   const fetchProfile = async () => {
     setIsLoading(true);
@@ -38,6 +41,11 @@ export default function DashboardPage() {
       if (res.ok) {
         const data = await res.json();
         setProfile(data);
+        if (!data.profile || !data.profile.target_role) {
+          setShowOnboarding(true);
+        } else {
+          setShowOnboarding(false);
+        }
       }
     } catch (error) {
       console.error("Failed to fetch profile:", error);
@@ -56,6 +64,8 @@ export default function DashboardPage() {
 
   return (
     <div className="section-container pb-20 space-y-16">
+      {showOnboarding && <Onboarding onComplete={fetchProfile} />}
+      
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
         <div className="space-y-4">
@@ -91,7 +101,9 @@ export default function DashboardPage() {
         <div className="card-minimal border-l-0 border-r-0 md:border-r border-white/5">
           <Briefcase className="w-5 h-5 mb-8 text-white/40" />
           <p className="text-minimal text-white/40 mb-2">JOBS_ANALYZED</p>
-          <p className="text-4xl font-tech font-bold tracking-tighter">0</p>
+          <p className="text-4xl font-tech font-bold tracking-tighter">
+            {profile?.analysis_count || 0}
+          </p>
         </div>
       </div>
 

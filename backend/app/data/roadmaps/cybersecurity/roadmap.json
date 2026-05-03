@@ -1,0 +1,312 @@
+{
+  "nodes": [
+    {
+      "id": "node_cybersecurity_0",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 100
+      },
+      "data": {
+        "label": "Network Security",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_1",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 180
+      },
+      "data": {
+        "label": "Ethical Hacking",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_2",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 260
+      },
+      "data": {
+        "label": "SIEM",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_3",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 340
+      },
+      "data": {
+        "label": "Firewalls",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_4",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 420
+      },
+      "data": {
+        "label": "Cryptography",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_5",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 500
+      },
+      "data": {
+        "label": "Risk Assessment",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_6",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 580
+      },
+      "data": {
+        "label": "Compliance",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_7",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 660
+      },
+      "data": {
+        "label": "Incident Response",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_8",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 740
+      },
+      "data": {
+        "label": "Python",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_9",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 820
+      },
+      "data": {
+        "label": "Linux",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_10",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 900
+      },
+      "data": {
+        "label": "Kali Linux",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_cybersecurity_11",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 980
+      },
+      "data": {
+        "label": "Penetration Testing",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_node_cybersecurity_0_node_cybersecurity_1",
+      "source": "node_cybersecurity_0",
+      "target": "node_cybersecurity_1",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_1_node_cybersecurity_2",
+      "source": "node_cybersecurity_1",
+      "target": "node_cybersecurity_2",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_2_node_cybersecurity_3",
+      "source": "node_cybersecurity_2",
+      "target": "node_cybersecurity_3",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_3_node_cybersecurity_4",
+      "source": "node_cybersecurity_3",
+      "target": "node_cybersecurity_4",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_4_node_cybersecurity_5",
+      "source": "node_cybersecurity_4",
+      "target": "node_cybersecurity_5",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_5_node_cybersecurity_6",
+      "source": "node_cybersecurity_5",
+      "target": "node_cybersecurity_6",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_6_node_cybersecurity_7",
+      "source": "node_cybersecurity_6",
+      "target": "node_cybersecurity_7",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_7_node_cybersecurity_8",
+      "source": "node_cybersecurity_7",
+      "target": "node_cybersecurity_8",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_8_node_cybersecurity_9",
+      "source": "node_cybersecurity_8",
+      "target": "node_cybersecurity_9",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_9_node_cybersecurity_10",
+      "source": "node_cybersecurity_9",
+      "target": "node_cybersecurity_10",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_cybersecurity_10_node_cybersecurity_11",
+      "source": "node_cybersecurity_10",
+      "target": "node_cybersecurity_11",
+      "type": "smoothstep"
+    }
+  ]
+}

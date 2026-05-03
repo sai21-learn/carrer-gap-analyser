@@ -1,82 +1,418 @@
 {
   "Python": [
-    {"title": "Python Docs", "url": "https://docs.python.org/3/", "platform": "Docs", "type": "documentation"},
-    {"title": "Python Crash Course", "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc", "platform": "YouTube", "type": "video"}
+    {
+      "title": "Python Docs",
+      "url": "https://docs.python.org/3/",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "Python Crash Course",
+      "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "SQL": [
-    {"title": "SQL Tutorial", "url": "https://www.w3schools.com/sql/", "platform": "W3Schools", "type": "documentation"},
-    {"title": "Intro to SQL", "url": "https://www.khanacademy.org/computing/computer-programming/sql", "platform": "Khan Academy", "type": "course"}
+    {
+      "title": "SQL Tutorial",
+      "url": "https://www.w3schools.com/sql/",
+      "platform": "W3Schools",
+      "type": "documentation"
+    },
+    {
+      "title": "Intro to SQL",
+      "url": "https://www.khanacademy.org/computing/computer-programming/sql",
+      "platform": "Khan Academy",
+      "type": "course"
+    }
   ],
   "Machine Learning": [
-    {"title": "ML Crash Course", "url": "https://developers.google.com/machine-learning/crash-course", "platform": "Google", "type": "course"},
-    {"title": "Intro to ML", "url": "https://www.coursera.org/learn/machine-learning", "platform": "Coursera", "type": "course"}
+    {
+      "title": "ML Crash Course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "platform": "Google",
+      "type": "course"
+    },
+    {
+      "title": "Intro to ML",
+      "url": "https://www.coursera.org/learn/machine-learning",
+      "platform": "Coursera",
+      "type": "course"
+    }
   ],
   "Deep Learning": [
-    {"title": "Deep Learning Specialization", "url": "https://www.coursera.org/specializations/deep-learning", "platform": "Coursera", "type": "course"},
-    {"title": "Deep Learning Book", "url": "https://www.deeplearningbook.org/", "platform": "Book", "type": "documentation"}
+    {
+      "title": "Deep Learning Specialization",
+      "url": "https://www.coursera.org/specializations/deep-learning",
+      "platform": "Coursera",
+      "type": "course"
+    },
+    {
+      "title": "Deep Learning Book",
+      "url": "https://www.deeplearningbook.org/",
+      "platform": "Book",
+      "type": "documentation"
+    }
   ],
   "TensorFlow": [
-    {"title": "TensorFlow Tutorials", "url": "https://www.tensorflow.org/tutorials", "platform": "Docs", "type": "documentation"},
-    {"title": "TensorFlow Crash Course", "url": "https://developers.google.com/machine-learning/crash-course", "platform": "Google", "type": "course"}
+    {
+      "title": "TensorFlow Tutorials",
+      "url": "https://www.tensorflow.org/tutorials",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "TensorFlow Crash Course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "platform": "Google",
+      "type": "course"
+    }
   ],
   "PyTorch": [
-    {"title": "PyTorch Tutorials", "url": "https://pytorch.org/tutorials/", "platform": "Docs", "type": "documentation"},
-    {"title": "PyTorch 60 Minutes", "url": "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html", "platform": "Docs", "type": "documentation"}
+    {
+      "title": "PyTorch Tutorials",
+      "url": "https://pytorch.org/tutorials/",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "PyTorch 60 Minutes",
+      "url": "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html",
+      "platform": "Docs",
+      "type": "documentation"
+    }
   ],
   "Docker": [
-    {"title": "Docker Get Started", "url": "https://docs.docker.com/get-started/", "platform": "Docs", "type": "documentation"},
-    {"title": "Docker for Beginners", "url": "https://www.youtube.com/watch?v=3c-iBn73dDE", "platform": "YouTube", "type": "video"}
+    {
+      "title": "Docker Get Started",
+      "url": "https://docs.docker.com/get-started/",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "Docker for Beginners",
+      "url": "https://www.youtube.com/watch?v=3c-iBn73dDE",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "Kubernetes": [
-    {"title": "Kubernetes Basics", "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "platform": "Docs", "type": "documentation"},
-    {"title": "Kubernetes in 100 Minutes", "url": "https://www.youtube.com/watch?v=1B2b2jz0PzU", "platform": "YouTube", "type": "video"}
+    {
+      "title": "Kubernetes Basics",
+      "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "Kubernetes in 100 Minutes",
+      "url": "https://www.youtube.com/watch?v=1B2b2jz0PzU",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "React": [
-    {"title": "React Docs", "url": "https://react.dev/learn", "platform": "Docs", "type": "documentation"},
-    {"title": "React Crash Course", "url": "https://www.youtube.com/watch?v=w7ejDZ8SWv8", "platform": "YouTube", "type": "video"}
+    {
+      "title": "React Docs",
+      "url": "https://react.dev/learn",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "React Crash Course",
+      "url": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "Node.js": [
-    {"title": "Node.js Docs", "url": "https://nodejs.org/en/docs", "platform": "Docs", "type": "documentation"},
-    {"title": "Node.js Crash Course", "url": "https://www.youtube.com/watch?v=fBNz5xF-Kx4", "platform": "YouTube", "type": "video"}
+    {
+      "title": "Node.js Docs",
+      "url": "https://nodejs.org/en/docs",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "Node.js Crash Course",
+      "url": "https://www.youtube.com/watch?v=fBNz5xF-Kx4",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "AWS": [
-    {"title": "AWS Training", "url": "https://aws.amazon.com/training/", "platform": "AWS", "type": "course"},
-    {"title": "AWS Docs", "url": "https://docs.aws.amazon.com/", "platform": "Docs", "type": "documentation"}
+    {
+      "title": "AWS Training",
+      "url": "https://aws.amazon.com/training/",
+      "platform": "AWS",
+      "type": "course"
+    },
+    {
+      "title": "AWS Docs",
+      "url": "https://docs.aws.amazon.com/",
+      "platform": "Docs",
+      "type": "documentation"
+    }
   ],
   "Git": [
-    {"title": "Git SCM Book", "url": "https://git-scm.com/book/en/v2", "platform": "Docs", "type": "documentation"},
-    {"title": "Git Basics", "url": "https://www.youtube.com/watch?v=8JJ101D3knE", "platform": "YouTube", "type": "video"}
+    {
+      "title": "Git SCM Book",
+      "url": "https://git-scm.com/book/en/v2",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "Git Basics",
+      "url": "https://www.youtube.com/watch?v=8JJ101D3knE",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "Pandas": [
-    {"title": "Pandas Docs", "url": "https://pandas.pydata.org/docs/", "platform": "Docs", "type": "documentation"},
-    {"title": "Pandas Tutorial", "url": "https://www.kaggle.com/learn/pandas", "platform": "Kaggle", "type": "course"}
+    {
+      "title": "Pandas Docs",
+      "url": "https://pandas.pydata.org/docs/",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "Pandas Tutorial",
+      "url": "https://www.kaggle.com/learn/pandas",
+      "platform": "Kaggle",
+      "type": "course"
+    }
   ],
   "Tableau": [
-    {"title": "Tableau Training", "url": "https://www.tableau.com/learn/training", "platform": "Tableau", "type": "course"},
-    {"title": "Tableau Public Resources", "url": "https://public.tableau.com/en-us/s/resources", "platform": "Tableau", "type": "documentation"}
+    {
+      "title": "Tableau Training",
+      "url": "https://www.tableau.com/learn/training",
+      "platform": "Tableau",
+      "type": "course"
+    },
+    {
+      "title": "Tableau Public Resources",
+      "url": "https://public.tableau.com/en-us/s/resources",
+      "platform": "Tableau",
+      "type": "documentation"
+    }
   ],
   "Power BI": [
-    {"title": "Power BI Learning", "url": "https://learn.microsoft.com/power-bi/", "platform": "Microsoft", "type": "documentation"},
-    {"title": "Power BI Tutorial", "url": "https://www.youtube.com/watch?v=AGrl-H87pRU", "platform": "YouTube", "type": "video"}
+    {
+      "title": "Power BI Learning",
+      "url": "https://learn.microsoft.com/power-bi/",
+      "platform": "Microsoft",
+      "type": "documentation"
+    },
+    {
+      "title": "Power BI Tutorial",
+      "url": "https://www.youtube.com/watch?v=AGrl-H87pRU",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "System Design": [
-    {"title": "System Design Primer", "url": "https://github.com/donnemartin/system-design-primer", "platform": "GitHub", "type": "documentation"},
-    {"title": "System Design Basics", "url": "https://www.youtube.com/watch?v=MbjObHmDbZo", "platform": "YouTube", "type": "video"}
+    {
+      "title": "System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "platform": "GitHub",
+      "type": "documentation"
+    },
+    {
+      "title": "System Design Basics",
+      "url": "https://www.youtube.com/watch?v=MbjObHmDbZo",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "REST API": [
-    {"title": "REST API Tutorial", "url": "https://restfulapi.net/", "platform": "Docs", "type": "documentation"},
-    {"title": "REST API Design", "url": "https://www.youtube.com/watch?v=Q-BpqyOT3a8", "platform": "YouTube", "type": "video"}
+    {
+      "title": "REST API Tutorial",
+      "url": "https://restfulapi.net/",
+      "platform": "Docs",
+      "type": "documentation"
+    },
+    {
+      "title": "REST API Design",
+      "url": "https://www.youtube.com/watch?v=Q-BpqyOT3a8",
+      "platform": "YouTube",
+      "type": "video"
+    }
   ],
   "Data Structures": [
-    {"title": "Data Structures Course", "url": "https://www.coursera.org/learn/data-structures", "platform": "Coursera", "type": "course"},
-    {"title": "Data Structures in Python", "url": "https://realpython.com/tutorials/data-structures/", "platform": "Real Python", "type": "documentation"}
+    {
+      "title": "Data Structures Course",
+      "url": "https://www.coursera.org/learn/data-structures",
+      "platform": "Coursera",
+      "type": "course"
+    },
+    {
+      "title": "Data Structures in Python",
+      "url": "https://realpython.com/tutorials/data-structures/",
+      "platform": "Real Python",
+      "type": "documentation"
+    }
   ],
   "Algorithms": [
-    {"title": "Algorithms, Part I", "url": "https://www.coursera.org/learn/algorithms-part1", "platform": "Coursera", "type": "course"},
-    {"title": "Algorithms Basics", "url": "https://www.khanacademy.org/computing/computer-science/algorithms", "platform": "Khan Academy", "type": "course"}
+    {
+      "title": "Algorithms, Part I",
+      "url": "https://www.coursera.org/learn/algorithms-part1",
+      "platform": "Coursera",
+      "type": "course"
+    },
+    {
+      "title": "Algorithms Basics",
+      "url": "https://www.khanacademy.org/computing/computer-science/algorithms",
+      "platform": "Khan Academy",
+      "type": "course"
+    }
   ],
   "JavaScript": [
-    {"title": "JavaScript Guide", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide", "platform": "MDN", "type": "documentation"},
-    {"title": "JavaScript Crash Course", "url": "https://www.youtube.com/watch?v=hdI2bqOjy3c", "platform": "YouTube", "type": "video"}
+    {
+      "title": "JavaScript Guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "platform": "MDN",
+      "type": "documentation"
+    },
+    {
+      "title": "JavaScript Crash Course",
+      "url": "https://www.youtube.com/watch?v=hdI2bqOjy3c",
+      "platform": "YouTube",
+      "type": "video"
+    }
+  ],
+  "Excel": [
+    {
+      "title": "Excel Basics",
+      "url": "https://www.youtube.com/watch?v=rwbho0CgEAE",
+      "platform": "YouTube",
+      "type": "video"
+    }
+  ],
+  "R": [
+    {
+      "title": "R for Data Science",
+      "url": "https://r4ds.had.co.nz/",
+      "platform": "Book",
+      "type": "documentation"
+    }
+  ],
+  "Statistics": [
+    {
+      "title": "Intro to Statistics",
+      "url": "https://www.khanacademy.org/math/statistics-probability",
+      "platform": "Khan Academy",
+      "type": "course"
+    }
+  ],
+  "C++": [
+    {
+      "title": "Learn C++",
+      "url": "https://www.learncpp.com/",
+      "platform": "Docs",
+      "type": "documentation"
+    }
+  ],
+  "TypeScript": [
+    {
+      "title": "TypeScript Handbook",
+      "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "platform": "Docs",
+      "type": "documentation"
+    }
+  ],
+  "MongoDB": [
+    {
+      "title": "MongoDB University",
+      "url": "https://learn.mongodb.com/",
+      "platform": "MongoDB",
+      "type": "course"
+    }
+  ],
+  "Redis": [
+    {
+      "title": "Redis Crash Course",
+      "url": "https://www.youtube.com/watch?v=jgpVdJB2sKQ",
+      "platform": "YouTube",
+      "type": "video"
+    }
+  ],
+  "GraphQL": [
+    {
+      "title": "How to GraphQL",
+      "url": "https://www.howtographql.com/",
+      "platform": "Tutorial",
+      "type": "course"
+    }
+  ],
+  "Terraform": [
+    {
+      "title": "Terraform Registry",
+      "url": "https://registry.terraform.io/",
+      "platform": "Docs",
+      "type": "documentation"
+    }
+  ],
+  "Jenkins": [
+    {
+      "title": "Jenkins Pipeline Tutorial",
+      "url": "https://www.jenkins.io/doc/pipeline/tour/getting-started/",
+      "platform": "Docs",
+      "type": "documentation"
+    }
+  ],
+  "GCP": [
+    {
+      "title": "Google Cloud Training",
+      "url": "https://cloud.google.com/training",
+      "platform": "Google",
+      "type": "course"
+    }
+  ],
+  "Azure": [
+    {
+      "title": "Microsoft Learn for Azure",
+      "url": "https://learn.microsoft.com/en-us/training/azure/",
+      "platform": "Microsoft",
+      "type": "course"
+    }
+  ],
+  "Figma": [
+    {
+      "title": "Figma Crash Course",
+      "url": "https://www.youtube.com/watch?v=HZuk6Wkx_Eg",
+      "platform": "YouTube",
+      "type": "video"
+    }
+  ],
+  "Linux": [
+    {
+      "title": "Linux Journey",
+      "url": "https://linuxjourney.com/",
+      "platform": "Tutorial",
+      "type": "documentation"
+    }
+  ],
+  "Testing": [
+    {
+      "title": "Software Testing Tutorial",
+      "url": "https://www.guru99.com/software-testing.html",
+      "platform": "Guru99",
+      "type": "documentation"
+    }
+  ],
+  "Microservices": [
+    {
+      "title": "Microservices by Chris Richardson",
+      "url": "https://microservices.io/",
+      "platform": "Docs",
+      "type": "documentation"
+    }
+  ],
+  "CI/CD": [
+    {
+      "title": "CI/CD Pipeline Explanation",
+      "url": "https://www.redhat.com/en/topics/devops/what-is-ci-cd",
+      "platform": "RedHat",
+      "type": "documentation"
+    }
   ]
 }

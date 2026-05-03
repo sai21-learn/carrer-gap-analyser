@@ -39,7 +39,7 @@ const RoadmapVisualizer: React.FC<RoadmapVisualizerProps> = ({ nodes, edges }) =
           nodes={nodes} 
           edges={edges} 
           onNodeClick={onNodeClick}
-          colorMode="dark"
+          {...({ colorMode: "dark" } as any)}
         >
           <Background color="#333" gap={20} />
           <Controls className="bg-black border border-white/10" />

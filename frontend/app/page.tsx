@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, BarChart3, FileText, Target, Zap } from "lucide-react";
 import gsap from "gsap";
@@ -10,6 +10,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [time, setTime] = useState<string | null>(null);
+
+  useEffect(() => {
+    setTime(new Date().toLocaleTimeString());
+    const interval = setInterval(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -144,7 +154,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-4 text-[10px] font-bold tracking-[0.2em] text-white/20 uppercase">
             <span>SYS_READY</span>
             <span className="w-1 h-1 bg-emerald-500 rounded-full animate-pulse"></span>
-            <span className="ml-4">LOCAL_TIME: {new Date().toLocaleTimeString()}</span>
+            <span className="ml-4">LOCAL_TIME: {time || "00:00:00"}</span>
           </div>
           <div className="text-[10px] text-white/20 uppercase tracking-widest">
             © 2024 CAREER_GAP_ANALYSER // ALL_SYSTEMS_OPERATIONAL

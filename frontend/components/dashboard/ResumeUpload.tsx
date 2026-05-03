@@ -79,7 +79,7 @@ export default function ResumeUpload({ onUploadSuccess }: ResumeUploadProps) {
       }
 
       const data = await response.json();
-      setExtractedSkills(data.skills);
+      setExtractedSkills(data.extracted_skills);
       setUploadStatus("review");
     } catch (err) {
       setUploadStatus("error");

@@ -1,0 +1,364 @@
+{
+  "nodes": [
+    {
+      "id": "node_data-analyst_0",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 100
+      },
+      "data": {
+        "label": "Python",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_1",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 180
+      },
+      "data": {
+        "label": "SQL",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_2",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 260
+      },
+      "data": {
+        "label": "Excel",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_3",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 340
+      },
+      "data": {
+        "label": "Tableau",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_4",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 420
+      },
+      "data": {
+        "label": "Power BI",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_5",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 500
+      },
+      "data": {
+        "label": "Pandas",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_6",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 580
+      },
+      "data": {
+        "label": "NumPy",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_7",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 660
+      },
+      "data": {
+        "label": "Statistics",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_8",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 740
+      },
+      "data": {
+        "label": "Data Visualization",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_9",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 820
+      },
+      "data": {
+        "label": "ETL",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_10",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 900
+      },
+      "data": {
+        "label": "R",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_11",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 980
+      },
+      "data": {
+        "label": "Machine Learning",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_12",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 1060
+      },
+      "data": {
+        "label": "Data Cleaning",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-analyst_13",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 1140
+      },
+      "data": {
+        "label": "Jupyter",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_node_data-analyst_0_node_data-analyst_1",
+      "source": "node_data-analyst_0",
+      "target": "node_data-analyst_1",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_1_node_data-analyst_2",
+      "source": "node_data-analyst_1",
+      "target": "node_data-analyst_2",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_2_node_data-analyst_3",
+      "source": "node_data-analyst_2",
+      "target": "node_data-analyst_3",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_3_node_data-analyst_4",
+      "source": "node_data-analyst_3",
+      "target": "node_data-analyst_4",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_4_node_data-analyst_5",
+      "source": "node_data-analyst_4",
+      "target": "node_data-analyst_5",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_5_node_data-analyst_6",
+      "source": "node_data-analyst_5",
+      "target": "node_data-analyst_6",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_6_node_data-analyst_7",
+      "source": "node_data-analyst_6",
+      "target": "node_data-analyst_7",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_7_node_data-analyst_8",
+      "source": "node_data-analyst_7",
+      "target": "node_data-analyst_8",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_8_node_data-analyst_9",
+      "source": "node_data-analyst_8",
+      "target": "node_data-analyst_9",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_9_node_data-analyst_10",
+      "source": "node_data-analyst_9",
+      "target": "node_data-analyst_10",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_10_node_data-analyst_11",
+      "source": "node_data-analyst_10",
+      "target": "node_data-analyst_11",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_11_node_data-analyst_12",
+      "source": "node_data-analyst_11",
+      "target": "node_data-analyst_12",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-analyst_12_node_data-analyst_13",
+      "source": "node_data-analyst_12",
+      "target": "node_data-analyst_13",
+      "type": "smoothstep"
+    }
+  ]
+}

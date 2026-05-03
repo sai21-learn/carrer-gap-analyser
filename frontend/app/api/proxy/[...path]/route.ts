@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"
 
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000"
+const BACKEND_URL = (process.env.BACKEND_URL || "http://localhost:8000") + "/api/v1"
 
 export async function POST(
   req: NextRequest,
@@ -17,14 +17,22 @@ export async function POST(
   const path = params.path.join("/")
   const url = `${BACKEND_URL}/${path}`
 
-  const formData = await req.formData()
-
   try {
+    const contentType = req.headers.get("content-type") || ""
+    let body: any
+
+    if (contentType.includes("multipart/form-data")) {
+      body = await req.formData()
+    } else {
+      body = JSON.stringify(await req.json())
+    }
+
     const res = await fetch(url, {
       method: "POST",
-      body: formData,
+      body: body,
       headers: {
         Authorization: `Bearer ${token}`,
+        ...(contentType.includes("application/json") && { "Content-Type": "application/json" }),
       },
     })
 

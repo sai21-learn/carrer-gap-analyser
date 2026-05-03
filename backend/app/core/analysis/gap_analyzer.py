@@ -8,7 +8,11 @@ from app.core.nlp.skill_normalizer import normalize_list
 
 def analyze(student_profile: StudentProfile, industry_skills: Dict[str, int]) -> GapReport:
     student_skills = normalize_list(student_profile.skills)
-    industry_skill_names = list(industry_skills.keys())
+    # Limit analysis to top skills to prevent exponential slowdown
+    MAX_INDUSTRY_SKILLS = 40
+    sorted_industry_skills = dict(sorted(industry_skills.items(), key=lambda x: x[1], reverse=True)[:MAX_INDUSTRY_SKILLS])
+    
+    industry_skill_names = list(sorted_industry_skills.keys())
     normalized_industry = normalize_list(industry_skill_names)
 
     matched: List[SkillResult] = []

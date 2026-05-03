@@ -1,0 +1,390 @@
+{
+  "nodes": [
+    {
+      "id": "node_data-scientist_0",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 100
+      },
+      "data": {
+        "label": "Python",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_1",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 180
+      },
+      "data": {
+        "label": "R",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_2",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 260
+      },
+      "data": {
+        "label": "SQL",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_3",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 340
+      },
+      "data": {
+        "label": "Machine Learning",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_4",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 420
+      },
+      "data": {
+        "label": "Deep Learning",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_5",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 500
+      },
+      "data": {
+        "label": "Pandas",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_6",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 580
+      },
+      "data": {
+        "label": "NumPy",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_7",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 660
+      },
+      "data": {
+        "label": "Scikit-learn",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_8",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 740
+      },
+      "data": {
+        "label": "TensorFlow",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_9",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 820
+      },
+      "data": {
+        "label": "PyTorch",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_10",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 900
+      },
+      "data": {
+        "label": "Statistics",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_11",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 980
+      },
+      "data": {
+        "label": "Data Visualization",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_12",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 1060
+      },
+      "data": {
+        "label": "Jupyter",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_13",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 1140
+      },
+      "data": {
+        "label": "Git",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    },
+    {
+      "id": "node_data-scientist_14",
+      "type": "topic",
+      "position": {
+        "x": 200,
+        "y": 1220
+      },
+      "data": {
+        "label": "AWS",
+        "style": {
+          "fontSize": 16,
+          "justifyContent": "center",
+          "textAlign": "center"
+        }
+      },
+      "style": {
+        "width": 200,
+        "height": 50
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_node_data-scientist_0_node_data-scientist_1",
+      "source": "node_data-scientist_0",
+      "target": "node_data-scientist_1",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_1_node_data-scientist_2",
+      "source": "node_data-scientist_1",
+      "target": "node_data-scientist_2",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_2_node_data-scientist_3",
+      "source": "node_data-scientist_2",
+      "target": "node_data-scientist_3",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_3_node_data-scientist_4",
+      "source": "node_data-scientist_3",
+      "target": "node_data-scientist_4",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_4_node_data-scientist_5",
+      "source": "node_data-scientist_4",
+      "target": "node_data-scientist_5",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_5_node_data-scientist_6",
+      "source": "node_data-scientist_5",
+      "target": "node_data-scientist_6",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_6_node_data-scientist_7",
+      "source": "node_data-scientist_6",
+      "target": "node_data-scientist_7",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_7_node_data-scientist_8",
+      "source": "node_data-scientist_7",
+      "target": "node_data-scientist_8",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_8_node_data-scientist_9",
+      "source": "node_data-scientist_8",
+      "target": "node_data-scientist_9",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_9_node_data-scientist_10",
+      "source": "node_data-scientist_9",
+      "target": "node_data-scientist_10",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_10_node_data-scientist_11",
+      "source": "node_data-scientist_10",
+      "target": "node_data-scientist_11",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_11_node_data-scientist_12",
+      "source": "node_data-scientist_11",
+      "target": "node_data-scientist_12",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_12_node_data-scientist_13",
+      "source": "node_data-scientist_12",
+      "target": "node_data-scientist_13",
+      "type": "smoothstep"
+    },
+    {
+      "id": "edge_node_data-scientist_13_node_data-scientist_14",
+      "source": "node_data-scientist_13",
+      "target": "node_data-scientist_14",
+      "type": "smoothstep"
+    }
+  ]
+}

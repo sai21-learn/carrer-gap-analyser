@@ -3,8 +3,9 @@ import re
 from pathlib import Path
 from typing import List
 
-ROOT_DIR = Path(__file__).resolve().parents[3]
-ALIASES_PATH = ROOT_DIR / "data_store" / "skill_aliases.json"
+from app.core.config.settings import DATA_STORE_DIR
+
+ALIASES_PATH = DATA_STORE_DIR / "skill_aliases.json"
 
 
 def _load_aliases() -> dict:
