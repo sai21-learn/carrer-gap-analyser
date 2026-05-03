@@ -21,7 +21,7 @@ class UserRead(UserBase):
 class ProfileBase(BaseModel):
     bio: Optional[str] = None
     current_skills: List[str] = []
-    target_role: Optional[str] = None
+    target_roles: List[str] = []
 
 
 class ProfileCreate(ProfileBase):

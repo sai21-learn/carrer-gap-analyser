@@ -66,3 +66,9 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-white/20;
 }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

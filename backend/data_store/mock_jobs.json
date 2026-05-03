@@ -398,5 +398,61 @@
     "description": "We are looking for a Cloud Engineer to join our fast-paced team. The ideal candidate will have strong experience with Kubernetes, Linux, Monitoring, Python, AWS, Networking, Azure, Serverless, CI/CD. Responsibilities include building scalable systems, collaborating with cross-functional teams, and driving technical excellence. Additional experience in related technologies is a plus.",
     "platform": "mock",
     "url": "https://mockjob.com/cloud-engineer/4"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "GrowthScale",
+    "location": "Remote",
+    "description": "Seeking a Full Stack Developer proficient in React, Node.js, SQL, TypeScript, and AWS. Build scalable web applications and lead technical projects.",
+    "platform": "mock",
+    "url": "https://mockjob.com/full-stack/0"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "Innovate IT",
+    "location": "Bangalore, India",
+    "description": "Join our dynamic team as a Full Stack Developer. Experience with Angular, Python, Django, MongoDB, and Docker is required. Excellent problem-solving skills.",
+    "platform": "mock",
+    "url": "https://mockjob.com/full-stack/1"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "TechStream",
+    "location": "Mumbai, India",
+    "description": "Full Stack Developer needed for high-growth startup. Expertise in Vue.js, Express, PostgreSQL, Redis, and CI/CD pipelines is essential.",
+    "platform": "mock",
+    "url": "https://mockjob.com/full-stack/2"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "CloudFront",
+    "location": "Hyderabad, India",
+    "description": "We are looking for a Full Stack Developer with strong skills in React, Java Spring Boot, MySQL, and Kubernetes. Passion for clean code and performance.",
+    "platform": "mock",
+    "url": "https://mockjob.com/full-stack/3"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "NextGen Apps",
+    "location": "Remote",
+    "description": "Full Stack Developer role specializing in Next.js, GraphQL, Prisma, and serverless architectures. Drive innovation and user-centric design.",
+    "platform": "mock",
+    "url": "https://mockjob.com/full-stack/4"
+  },
+  {
+    "title": "Game Developer",
+    "company": "PixelStudio",
+    "location": "Remote",
+    "description": "Seeking a Game Developer with experience in Unity and C#. Strong knowledge of game physics and optimization is a must.",
+    "platform": "mock",
+    "url": "https://mockjob.com/game-dev/0"
+  },
+  {
+    "title": "Senior Game Developer",
+    "company": "EpicGames Clone",
+    "location": "Montreal, Canada",
+    "description": "Lead Game Developer for Unreal Engine project. Expertise in C++, Shaders, and multiplayer networking required.",
+    "platform": "mock",
+    "url": "https://mockjob.com/game-dev/1"
   }
 ]

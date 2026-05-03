@@ -16,6 +16,8 @@ import { useUser } from "@clerk/nextjs";
 import ResumeUpload from "@/components/dashboard/ResumeUpload";
 import AnalysisRunner from "@/components/dashboard/AnalysisRunner";
 import Onboarding from "@/components/dashboard/Onboarding";
+import RoleEditor from "@/components/dashboard/RoleEditor";
+import { Edit2 } from "lucide-react";
 
 interface ProfileData {
   id: number;
@@ -23,7 +25,7 @@ interface ProfileData {
   email: string;
   analysis_count: number;
   profile: {
-    target_role: string;
+    target_roles: string[];
     skills: string[];
   } | null;
 }
@@ -33,6 +35,7 @@ export default function DashboardPage() {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showRoleEditor, setShowRoleEditor] = useState(false);
 
   const fetchProfile = async () => {
     setIsLoading(true);
@@ -41,7 +44,7 @@ export default function DashboardPage() {
       if (res.ok) {
         const data = await res.json();
         setProfile(data);
-        if (!data.profile || !data.profile.target_role) {
+        if (!data.profile || !data.profile.target_roles || data.profile.target_roles.length === 0) {
           setShowOnboarding(true);
         } else {
           setShowOnboarding(false);
@@ -65,6 +68,13 @@ export default function DashboardPage() {
   return (
     <div className="section-container pb-20 space-y-16">
       {showOnboarding && <Onboarding onComplete={fetchProfile} />}
+      {showRoleEditor && profile && (
+        <RoleEditor 
+          currentRoles={profile.profile?.target_roles || []} 
+          onSave={fetchProfile} 
+          onClose={() => setShowRoleEditor(false)} 
+        />
+      )}
       
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
@@ -84,12 +94,24 @@ export default function DashboardPage() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
-        <div className="card-minimal border-l-0 border-r-0 md:border-l border-white/5">
+        <div className="card-minimal border-l-0 border-r-0 md:border-l border-white/5 relative group">
+          <button 
+            onClick={() => setShowRoleEditor(true)}
+            className="absolute top-6 right-6 p-2 opacity-0 group-hover:opacity-100 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+            title="EDIT_TARGETS"
+          >
+            <Edit2 className="w-3 h-3 text-white/40" />
+          </button>
           <Target className="w-5 h-5 mb-8 text-white/40" />
-          <p className="text-minimal text-white/40 mb-2">TARGET_ROLE</p>
+          <p className="text-minimal text-white/40 mb-2">TARGET_TRAJECTORY</p>
           <p className="text-xl font-bold tracking-tight uppercase truncate">
-            {profile?.profile?.target_role || "NOT_DEFINED"}
+            {profile?.profile?.target_roles?.[0] || "NOT_DEFINED"}
           </p>
+          {profile?.profile?.target_roles && profile.profile.target_roles.length > 1 && (
+            <p className="text-[8px] text-white/20 mt-1 uppercase tracking-widest">
+              + {profile.profile.target_roles.length - 1} OTHER_TARGETS
+            </p>
+          )}
         </div>
         <div className="card-minimal border-l-0 border-r-0 border-white/5">
           <Cpu className="w-5 h-5 mb-8 text-white/40" />

@@ -17,6 +17,7 @@ An intelligent, full-stack platform designed to identify, analyze, and bridge th
 - **🔐 Secure Identity**: Enterprise-grade authentication via Clerk with JWKS verification.
 - **🚀 High-Performance Backend**: FastAPI with asynchronous task processing via Celery & Redis.
 - **🎨 Premium UI/UX**: Minimalist 'techy' dark mode designed for focus and clarity.
+- **📈 Comprehensive Data**: Roadmap data sourced from [roadmap.sh](https://roadmap.sh) via the community-maintained JSON datasets.
 
 ---
 
@@ -210,6 +211,9 @@ graph TD
 │   ├── app/
 │   │   ├── api/          # API Routers (v1)
 │   │   ├── core/         # NLP, Scrapers, Config (Pydantic Settings)
+│   │   ├── data/
+│   │   │   └── roadmaps/ # Real-world roadmap JSON files (roadmap.sh)
+│   │   ├── services/     # Business logic (Roadmap Service, Analysis Service)
 │   │   ├── models.py     # Database Entities
 │   │   ├── schemas.py    # API Data Models
 │   │   └── auth.py       # Clerk Security Logic

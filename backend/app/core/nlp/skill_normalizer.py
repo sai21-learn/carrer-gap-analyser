@@ -8,9 +8,18 @@ from app.core.config.settings import DATA_STORE_DIR
 ALIASES_PATH = DATA_STORE_DIR / "skill_aliases.json"
 
 
+_ALIASES_CACHE = None
+
 def _load_aliases() -> dict:
-    with open(ALIASES_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+    global _ALIASES_CACHE
+    if _ALIASES_CACHE is not None:
+        return _ALIASES_CACHE
+    try:
+        with open(ALIASES_PATH, "r", encoding="utf-8") as f:
+            _ALIASES_CACHE = json.load(f)
+    except Exception:
+        _ALIASES_CACHE = {}
+    return _ALIASES_CACHE
 
 
 def normalize(skill: str) -> str:

@@ -10,22 +10,25 @@ export default function AnalysisRunner() {
   const [status, setStatus] = useState<string | null>(null);
   const [result, setResult] = useState<any | null>(null);
   const [progress, setProgress] = useState(0);
-  const [targetRole, setTargetRole] = useState<string | null>(null);
+  const [targetRoles, setTargetRoles] = useState<string[]>([]);
+  const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [analysisId, setAnalysisId] = useState<number | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch target role from profile
+    // Fetch target roles from profile
     fetch("/api/proxy/profile/me")
       .then(res => res.json())
       .then(data => {
-        setTargetRole(data.profile?.target_role || null);
+        const roles = data.profile?.target_roles || (data.profile?.target_role ? [data.profile.target_role] : []);
+        setTargetRoles(roles);
+        if (roles.length > 0) setSelectedRole(roles[0]);
       })
       .catch(console.error);
   }, []);
 
   const startAnalysis = async () => {
-    if (!targetRole) {
+    if (!selectedRole) {
       setStatus("ERROR");
       setResult({ error: "TARGET_ROLE_NOT_DEFINED. PLEASE_UPDATE_SETTINGS." });
       return;
@@ -40,7 +43,7 @@ export default function AnalysisRunner() {
       const response = await fetch("/api/proxy/analysis/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ target_role: targetRole }),
+        body: JSON.stringify({ target_role: selectedRole }),
       });
 
       if (response.ok) {
@@ -105,18 +108,35 @@ export default function AnalysisRunner() {
     <div className="card-minimal">
       <div className="mb-8">
         <h2 className="text-minimal text-white/40">GAP_SCANNER</h2>
-        <p className="text-[10px] text-white/20 uppercase tracking-widest mt-1">
-          {targetRole ? `TARGET: ${targetRole}` : "TARGET: NOT_DEFINED"}
-        </p>
+        <div className="mt-4 space-y-4">
+          <div className="space-y-1">
+            <p className="text-[8px] text-white/20 uppercase tracking-[0.3em]">SELECT_ACTIVE_TARGET</p>
+            {targetRoles.length > 1 ? (
+              <select 
+                value={selectedRole || ""} 
+                onChange={(e) => setSelectedRole(e.target.value)}
+                className="w-full bg-black border border-white/10 p-2 text-[10px] font-mono uppercase focus:border-white/40 outline-none transition-all"
+              >
+                {targetRoles.map(role => (
+                  <option key={role} value={role}>{role}</option>
+                ))}
+              </select>
+            ) : (
+              <p className="text-[10px] text-white/60 font-mono uppercase">
+                {selectedRole || "NOT_DEFINED"}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="space-y-6">
         <button
           onClick={startAnalysis}
-          disabled={!!taskId || !targetRole}
+          disabled={!!taskId || !selectedRole}
           className={cn(
             "w-full btn-minimal",
-            (!!taskId || !targetRole) && "opacity-20 cursor-not-allowed"
+            (!!taskId || !selectedRole) && "opacity-20 cursor-not-allowed"
           )}
         >
           {taskId ? (

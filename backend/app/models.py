@@ -16,7 +16,8 @@ class Profile(SQLModel, table=True):
     user_id: int = Field(foreign_key="user.id")
     bio: Optional[str] = None
     current_skills: str = Field(default="[]")  # Stored as JSON string
-    target_role: Optional[str] = None
+    target_role: Optional[str] = None  # Deprecated in favor of target_roles
+    target_roles: str = Field(default="[]")  # Stored as JSON string
 
 
 class Feedback(SQLModel, table=True):

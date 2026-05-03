@@ -10,9 +10,18 @@ from app.core.nlp.skill_normalizer import normalize
 RESOURCES_PATH = DATA_STORE_DIR / "resources_db.json"
 
 
+_RESOURCES_CACHE = None
+
 def _load_resources() -> dict:
-    with open(RESOURCES_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+    global _RESOURCES_CACHE
+    if _RESOURCES_CACHE is not None:
+        return _RESOURCES_CACHE
+    try:
+        with open(RESOURCES_PATH, "r", encoding="utf-8") as f:
+            _RESOURCES_CACHE = json.load(f)
+    except Exception:
+        _RESOURCES_CACHE = {}
+    return _RESOURCES_CACHE
 
 
 def get_resources(skill: str) -> List[Resource]:

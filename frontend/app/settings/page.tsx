@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from "react"
 import { useUser, SignOutButton } from "@clerk/nextjs"
-import { User, Shield, Bell, CreditCard, LogOut, Save } from "lucide-react"
+import { User, Shield, Bell, CreditCard, LogOut, Save, Plus, X } from "lucide-react"
 
 export default function SettingsPage() {
   const { user, isLoaded } = useUser()
   const [profile, setProfile] = useState({
     fullName: "",
-    targetRole: "",
+    targetRoles: [] as string[],
     email: "",
   })
+  const [newRole, setNewRole] = useState("")
   const [isSaving, setIsSaving] = useState(false)
 
   useEffect(() => {
@@ -21,12 +22,29 @@ export default function SettingsPage() {
         .then(data => {
           setProfile({
             fullName: data.full_name || user.fullName || "",
-            targetRole: data.profile?.target_role || "",
+            targetRoles: data.profile?.target_roles || (data.profile?.target_role ? [data.profile.target_role] : []),
             email: user.primaryEmailAddress?.emailAddress || "",
           })
         })
     }
   }, [isLoaded, user])
+
+  const addRole = () => {
+    if (newRole && !profile.targetRoles.includes(newRole)) {
+      setProfile({
+        ...profile,
+        targetRoles: [...profile.targetRoles, newRole]
+      })
+      setNewRole("")
+    }
+  }
+
+  const removeRole = (roleToRemove: string) => {
+    setProfile({
+      ...profile,
+      targetRoles: profile.targetRoles.filter(role => role !== roleToRemove)
+    })
+  }
 
   const handleSave = async () => {
     setIsSaving(true)
@@ -36,7 +54,7 @@ export default function SettingsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: profile.fullName,
-          target_role: profile.targetRole,
+          target_roles: profile.targetRoles,
         })
       })
       if (res.ok) {
@@ -99,7 +117,7 @@ export default function SettingsPage() {
                     type="text" 
                     value={profile.fullName}
                     onChange={e => setProfile({...profile, fullName: e.target.value})}
-                    className="w-full bg-transparent border-b border-white/10 py-2 focus:outline-none focus:border-white transition-all font-light" 
+                    className="w-full bg-transparent border-b border-white/10 py-2 focus:outline-none focus:border-white transition-all font-light font-mono text-sm" 
                   />
                 </div>
                 <div className="space-y-2">
@@ -108,20 +126,44 @@ export default function SettingsPage() {
                     type="email" 
                     value={profile.email}
                     disabled
-                    className="w-full bg-transparent border-b border-white/10 py-2 text-white/40 font-light cursor-not-allowed" 
+                    className="w-full bg-transparent border-b border-white/10 py-2 text-white/40 font-light cursor-not-allowed font-mono text-sm" 
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[8px] tracking-[0.4em] text-white/20 uppercase">TARGET_TRAJECTORY</label>
-                <input 
-                  type="text" 
-                  value={profile.targetRole}
-                  onChange={e => setProfile({...profile, targetRole: e.target.value})}
-                  className="w-full bg-transparent border-b border-white/10 py-2 focus:outline-none focus:border-white transition-all font-light" 
-                  placeholder="e.g. SYSTEMS_ARCHITECT"
-                />
+              <div className="space-y-4">
+                <label className="text-[8px] tracking-[0.4em] text-white/20 uppercase">TARGET_TRAJECTORIES</label>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {profile.targetRoles.map(role => (
+                    <div key={role} className="flex items-center gap-2 px-3 py-1 border border-white/20 bg-white/5 text-[10px] font-mono uppercase">
+                      {role}
+                      <button onClick={() => removeRole(role)} className="hover:text-red-500 transition-colors">
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  ))}
+                  {profile.targetRoles.length === 0 && (
+                    <p className="text-[10px] text-white/20 uppercase italic">NO_ROLES_DEFINED</p>
+                  )}
+                </div>
+
+                <div className="flex gap-4">
+                  <input 
+                    type="text" 
+                    value={newRole}
+                    onChange={e => setNewRole(e.target.value)}
+                    onKeyDown={e => e.key === "Enter" && addRole()}
+                    className="flex-grow bg-transparent border-b border-white/10 py-2 focus:outline-none focus:border-white transition-all font-light font-mono text-sm" 
+                    placeholder="ADD_NEW_ROLE (e.g. SYSTEMS_ARCHITECT)"
+                  />
+                  <button 
+                    onClick={addRole}
+                    className="px-4 border border-white/10 hover:bg-white hover:text-black transition-all"
+                  >
+                    <Plus className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
 

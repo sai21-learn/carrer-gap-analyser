@@ -20,12 +20,15 @@ class RoadmapService:
             "Backend Developer": "backend",
             "DevOps Engineer": "devops",
             "Data Analyst": "data-analyst",
-            "Data Scientist": "data-scientist",
-            "Machine Learning Engineer": "ml-engineer",
-            "Software Engineer": "software-engineer",
-            "UI/UX Designer": "uiux",
-            "Cybersecurity Analyst": "cybersecurity",
-            "Cloud Engineer": "cloud-engineer",
+            "Data Scientist": "ai-data-scientist",
+            "Machine Learning Engineer": "machine-learning",
+            "Software Engineer": "computer-science",
+            "UI/UX Designer": "ux-design",
+            "Cybersecurity Analyst": "cyber-security",
+            "Cloud Engineer": "aws",
+            "Full Stack Developer": "full-stack",
+            "Full Stack Engineer": "full-stack",
+            "Game Developer": "game-developer",
         }
 
     def get_roadmap_for_gaps(self, role: str, gap_skills: List[str]) -> Dict:

@@ -110,7 +110,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          target_role: targetRole,
+          target_roles: [targetRole],
           current_skills: skills
         })
       });

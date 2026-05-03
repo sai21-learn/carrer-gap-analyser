@@ -63,6 +63,9 @@ class Settings(BaseSettings):
         "UI/UX Designer",
         "Cybersecurity Analyst",
         "Cloud Engineer",
+        "Full Stack Developer",
+        "Full Stack Engineer",
+        "Game Developer",
     ]
 
     ROLE_SKILLS: Dict[str, List[str]] = {
@@ -105,6 +108,18 @@ class Settings(BaseSettings):
         "Cloud Engineer": [
             "AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Python", "Linux",
             "CI/CD", "Monitoring", "Infrastructure as Code", "Serverless", "Networking"
+        ],
+        "Full Stack Developer": [
+            "JavaScript", "TypeScript", "React", "Node.js", "Python", "SQL", "MongoDB", "HTML", "CSS",
+            "Docker", "Git", "REST APIs", "GraphQL", "AWS", "Testing"
+        ],
+        "Full Stack Engineer": [
+            "JavaScript", "TypeScript", "React", "Node.js", "Python", "SQL", "MongoDB", "HTML", "CSS",
+            "Docker", "Git", "REST APIs", "GraphQL", "AWS", "Testing"
+        ],
+        "Game Developer": [
+            "C#", "C++", "Unity", "Unreal Engine", "Game Mathematics", "Shaders", "Physics",
+            "3D Modeling", "Animation", "Networking", "AI", "Mobile Development"
         ]
     }
 

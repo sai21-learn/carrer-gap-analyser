@@ -9,6 +9,7 @@ interface ProfileData {
   full_name: string;
   email: string;
   profile: {
+    target_roles: string[];
     target_role: string;
     skills: string[];
   } | null;
@@ -53,7 +54,7 @@ export default function ProfilePage() {
         <div className="space-y-4">
           <p className="text-minimal text-white/40">USER_PROFILE</p>
           <h1 className="text-5xl md:text-7xl font-tech font-bold tracking-tighter uppercase italic">
-            {user?.firstName || "OPERATOR"}
+            {user?.firstName || "PLAYER"}
           </h1>
         </div>
         <button className="px-8 py-3 border border-white/10 hover:border-white/40 transition-all text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-3">
@@ -114,11 +115,21 @@ export default function ProfilePage() {
             <div className="card-minimal">
               <div className="flex items-center gap-3 mb-6">
                  <Target className="w-4 h-4 text-white/40" />
-                 <h2 className="text-minimal text-white/40">CURRENT_TARGET</h2>
+                 <h2 className="text-minimal text-white/40">TARGET_TRAJECTORIES</h2>
               </div>
-              <p className="text-2xl font-tech font-bold uppercase tracking-tight">
-                {profile?.profile?.target_role || "NOT_DEFINED"}
-              </p>
+              <div className="space-y-2">
+                {profile?.profile?.target_roles && profile.profile.target_roles.length > 0 ? (
+                  profile.profile.target_roles.map((role, idx) => (
+                    <p key={idx} className="text-xl font-tech font-bold uppercase tracking-tight">
+                      {role}
+                    </p>
+                  ))
+                ) : (
+                  <p className="text-xl font-tech font-bold uppercase tracking-tight">
+                    {profile?.profile?.target_role || "NOT_DEFINED"}
+                  </p>
+                )}
+              </div>
             </div>
 
             <div className="card-minimal">

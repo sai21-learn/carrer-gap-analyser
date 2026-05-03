@@ -150,6 +150,7 @@ node_modules/
 __pycache__/
 .pytest_cache/
 test.db
+*.db
 
 .gemini/
 .github/

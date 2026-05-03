@@ -1,16 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { User, Shield, Bell, Database, Trash2, Save, RefreshCw, X } from "lucide-react";
+import { User, Shield, Bell, Database, Trash2, Save, RefreshCw, X, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function SettingsPage() {
   const router = useRouter();
   const [isSaving, setIsSaving] = useState(false);
   const [profile, setProfile] = useState<any>(null);
-  const [targetRole, setTargetRole] = useState("");
+  const [targetRoles, setTargetRoles] = useState<string[]>([]);
+  const [newRole, setNewRole] = useState("");
   const [skills, setSkills] = useState<string[]>([]);
-  const [supportedRoles, setSupportedRoles] = useState<string[]>([
+  const [supportedRoles] = useState<string[]>([
     "Data Analyst", "Data Scientist", "Machine Learning Engineer",
     "Software Engineer", "Frontend Developer", "Backend Developer",
     "DevOps Engineer", "UI/UX Designer", "Cybersecurity Analyst", "Cloud Engineer"
@@ -22,9 +23,10 @@ export default function SettingsPage() {
       .then(data => {
         if (data.profile) {
           setProfile(data.profile);
-          setTargetRole(data.profile.target_role || "");
+          setTargetRoles(data.profile.target_roles || (data.profile.target_role ? [data.profile.target_role] : []));
           try {
-            setSkills(JSON.parse(data.profile.current_skills || "[]"));
+            const rawSkills = data.profile.skills || [];
+            setSkills(Array.isArray(rawSkills) ? rawSkills : JSON.parse(data.profile.current_skills || "[]"));
           } catch(e) {
             setSkills([]);
           }
@@ -32,14 +34,25 @@ export default function SettingsPage() {
       });
   }, []);
 
+  const addRole = () => {
+    if (newRole && !targetRoles.includes(newRole)) {
+      setTargetRoles([...targetRoles, newRole]);
+      setNewRole("");
+    }
+  };
+
+  const removeRole = (roleToRemove: string) => {
+    setTargetRoles(targetRoles.filter(r => r !== roleToRemove));
+  };
+
   const handleSave = async () => {
     setIsSaving(true);
     try {
       await fetch("/api/proxy/profile/onboard", {
-        method: "PUT",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          target_role: targetRole,
+          target_roles: targetRoles,
           current_skills: skills
         })
       });
@@ -60,7 +73,6 @@ export default function SettingsPage() {
 
   const purgeHistory = async () => {
     if (confirm("Are you sure you want to purge all analysis history?")) {
-      // In a real app, you would call a DELETE /api/proxy/analysis/history endpoint
       alert("This would delete history in a full implementation.");
     }
   };
@@ -102,17 +114,44 @@ export default function SettingsPage() {
             
             <div className="space-y-6">
               <div className="p-6 border border-white/5 bg-white/[0.02]">
-                <label className="block text-xs font-bold uppercase mb-4 text-white/80">Target Role</label>
-                <select 
-                  value={targetRole}
-                  onChange={(e) => setTargetRole(e.target.value)}
-                  className="w-full bg-black border border-white/20 p-3 text-sm text-white focus:outline-none focus:border-white transition-colors uppercase tracking-widest"
-                >
-                  <option value="">SELECT A ROLE</option>
-                  {supportedRoles.map(r => (
-                    <option key={r} value={r}>{r}</option>
+                <label className="block text-xs font-bold uppercase mb-4 text-white/80">Target Trajectories</label>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {targetRoles.map(role => (
+                    <div key={role} className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 group hover:bg-white/10 transition-colors">
+                      <span className="text-[10px] uppercase tracking-widest">{role}</span>
+                      <button onClick={() => removeRole(role)} className="text-white/20 hover:text-red-500 transition-colors">
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
                   ))}
-                </select>
+                  {targetRoles.length === 0 && (
+                    <p className="text-[10px] text-white/20 uppercase tracking-widest italic">NO_TARGET_ROLES_DEFINED</p>
+                  )}
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-grow">
+                    <input 
+                      type="text"
+                      list="supported-roles"
+                      value={newRole}
+                      onChange={(e) => setNewRole(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && addRole()}
+                      className="w-full bg-black border border-white/20 p-3 text-sm text-white focus:outline-none focus:border-white transition-colors uppercase tracking-widest font-mono"
+                      placeholder="ENTER_NEW_TARGET_ROLE..."
+                    />
+                    <datalist id="supported-roles">
+                      {supportedRoles.map(r => <option key={r} value={r} />)}
+                    </datalist>
+                  </div>
+                  <button 
+                    onClick={addRole}
+                    className="px-6 border border-white/20 hover:bg-white hover:text-black transition-all"
+                  >
+                    <Plus className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
 
               <div className="p-6 border border-white/5 bg-white/[0.02]">

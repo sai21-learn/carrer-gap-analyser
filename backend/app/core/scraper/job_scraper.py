@@ -31,10 +31,15 @@ def _load_mock(role: str) -> List[JobPosting]:
 def fetch_jobs(
     role: str, filters: Optional[JobSearchFilters] = None
 ) -> List[JobPosting]:
-    if role not in SUPPORTED_ROLES:
+    # Case-insensitive role check
+    matched_role = next((r for r in SUPPORTED_ROLES if r.lower() == role.lower()), None)
+    if not matched_role:
         raise ValueError(
             f"Unsupported role '{role}'. Valid roles: {', '.join(SUPPORTED_ROLES)}"
         )
+    
+    # Use the normalized role name from SUPPORTED_ROLES
+    role = matched_role
 
     if USE_MOCK_DATA:
         return _load_mock(role)

@@ -9,6 +9,7 @@ from ..auth import get_current_user
 from ..db import get_session
 from ..models import Profile, User
 from .. import schemas
+from ..core.config.settings import SUPPORTED_ROLES
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -76,7 +77,24 @@ async def get_profile(
     if not profile:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Profile not found")
         
-    return profile
+    # Migration/Normalization
+    target_roles = []
+    if profile.target_roles:
+        try:
+            target_roles = json.loads(profile.target_roles)
+        except Exception:
+            target_roles = []
+            
+    if not target_roles and profile.target_role:
+        target_roles = [profile.target_role]
+        
+    return schemas.ProfileRead(
+        id=profile.id,
+        user_id=profile.user_id,
+        bio=profile.bio,
+        current_skills=json.loads(profile.current_skills) if profile.current_skills else [],
+        target_roles=target_roles
+    )
 
 
 @router.post("/onboard")
@@ -93,7 +111,12 @@ async def onboard_user(
         profile = Profile(user_id=current_user.id)
         session.add(profile)
     
-    profile.target_role = data.target_role
+    # Support both target_role (old) and target_roles (new)
+    target_roles = data.target_roles
+    if not target_roles and hasattr(data, 'target_role') and data.target_role:
+        target_roles = [data.target_role]
+        
+    profile.target_roles = json.dumps(target_roles)
     profile.current_skills = json.dumps(data.current_skills)
     
     session.add(profile)
@@ -101,6 +124,34 @@ async def onboard_user(
     
     logger.info(f"Onboarding complete for user {current_user.id}")
     return {"status": "success", "message": "Onboarding complete"}
+
+
+@router.get("/supported-roles")
+async def get_supported_roles():
+    return SUPPORTED_ROLES
+
+
+@router.put("/roles")
+async def update_roles(
+    data: dict,
+    current_user: User = Depends(get_current_user),
+    session: Session = Depends(get_session),
+):
+    profile = session.exec(
+        select(Profile).where(Profile.user_id == current_user.id)
+    ).first()
+    
+    if not profile:
+        profile = Profile(user_id=current_user.id)
+        session.add(profile)
+    
+    roles = data.get("roles", [])
+    profile.target_roles = json.dumps(roles)
+    
+    session.add(profile)
+    session.commit()
+    
+    return {"status": "success", "roles": roles}
 
 
 @router.get("/me")
@@ -117,6 +168,16 @@ async def get_my_profile(
         select(Analysis).where(Analysis.user_id == current_user.id)
     ).all()
     
+    target_roles = []
+    if profile and profile.target_roles:
+        try:
+            target_roles = json.loads(profile.target_roles)
+        except Exception:
+            target_roles = []
+            
+    if profile and not target_roles and profile.target_role:
+        target_roles = [profile.target_role]
+        
     return {
         "id": current_user.id,
         "clerk_id": current_user.clerk_id,
@@ -124,8 +185,8 @@ async def get_my_profile(
         "full_name": current_user.full_name,
         "analysis_count": len(analysis_count),
         "profile": {
-            "target_role": profile.target_role if profile else None,
-            "skills": json.loads(profile.current_skills) if profile and profile.current_skills else []
+            "target_roles": target_roles,
+            "skills": json.loads(profile.current_skills) if profile and profile.current_skills and profile.current_skills != "[]" else []
         } if profile else None
     }
 
